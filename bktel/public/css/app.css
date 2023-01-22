@@ -1,4 +1,31 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+.invalid-feedback{ 
+    margin-left: 15px;
+    display: inline !important;
+}
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+.invalid-feedback-login{
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
+    display: inline !important;
+}
 @charset "UTF-8"; /*!
  * Bootstrap  v5.2.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
