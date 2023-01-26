@@ -154,16 +154,16 @@
     <!-- Right -->
     <div>
       <a href="#!" class="text-white me-4">
-        <i class="fa fa-facebook-f"></i>
+      <i class="uil uil-facebook"></i>
       </a>
       <a href="#!" class="text-white me-4">
-        <i class="fa fa-twitter"></i>
+      <i class="uil uil-twitter"></i>
       </a>
       <a href="#!" class="text-white me-4">
-        <i class="fa fa-google"></i>
+      <i class="uil uil-google"></i>
       </a>
       <a href="#!" class="text-white">
-        <i class="fa fa-linkedin-in"></i>
+      <i class="uil uil-linkedin"></i>
       </a>
     </div>
     <!-- Right -->

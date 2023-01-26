@@ -26,6 +26,11 @@ height: 100%;
     color: #dc3545;
     display: inline !important;
 }
+.logo_hcmut{ 
+    width: 50px;
+    height:31px; 
+}
+
 @charset "UTF-8"; /*!
  * Bootstrap  v5.2.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
