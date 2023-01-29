@@ -31,8 +31,20 @@ height: 100%;
     height:31px; 
 }
 
+.text-style{
+    font-size: 30px;
+    background: url(https://png.pngtree.com/thumb_back/fw800/background/20200414/pngtree-simple-blue-yellow-abstract-background-image_333814.jpg);
+    -webkit-background-clip: text;
+    color:transparent;
+    background-position: center;
+    background-size: 100%;
+    font-weight: 700;
+}
+.blue-background{ 
+    background-color: rgb(49, 102, 237) !important;
+}
 @charset "UTF-8"; /*!
- * Bootstrap  v5.2.2 (https://getbootstrap.com/)
+ * Bootstrap  v5.2.3 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -5851,7 +5863,6 @@ textarea.form-control-lg {
   display: block;
 }
 
-/* rtl:begin:ignore */
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
   transform: translateX(100%);
@@ -5862,7 +5873,6 @@ textarea.form-control-lg {
   transform: translateX(-100%);
 }
 
-/* rtl:end:ignore */
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-property: opacity;
