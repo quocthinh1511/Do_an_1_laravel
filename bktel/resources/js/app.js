@@ -8,6 +8,8 @@ require('./bootstrap');
 
 window.Vue = require('vue').default;
 
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -16,7 +18,7 @@ window.Vue = require('vue').default;
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
+// const files = require.context('./', true, //.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
@@ -31,9 +33,26 @@ Vue.component('footer-component', require('./components/FooterComponent.vue').de
 import Vue from 'vue'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
-// Import Bootstrap and BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+// Import Bootstrap and BootstrapVue CSimport '@tensorflow/tfjs-node';
+
+// implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
+
+// not required, but will speed up things drastically (python required)
+
+
+// implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
+// not required, but will speed up things drastically (python required)
+// import '@tensorflow/tfjs-node'
+
+// // implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
+// import * as canvas from 'canvas'
+
+
+// // patch nodejs environment, we need to provide an implementation of
+// // HTMLCanvasElement and HTMLImageElement, additionally an implementation
+// // of ImageData is required, in case you want to use the MTCNN
+// const { Canvas, Image, ImageData } = canvas
+// faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)

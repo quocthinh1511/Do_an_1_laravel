@@ -1,4 +1,4 @@
-{
+{   
     "private": true,
     "scripts": {
         "dev": "npm run development",
@@ -9,6 +9,7 @@
         "prod": "npm run production",
         "production": "mix --production"
     },
+
     "devDependencies": {
         "@popperjs/core": "^2.10.2",
         "axios": "^0.21",
@@ -24,7 +25,10 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "autoload": "^0.1.2",
         "bootstrap-vue": "^2.23.1",
-        "mdbvue": "^6.7.3"
+        "face-api.js": "^0.22.2",
+        "mdbvue": "^6.7.3",
+        "path-browserify": "^1.0.1"
     }
 }
