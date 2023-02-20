@@ -5,6 +5,7 @@
 @import 'variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
 @import url('/resources/css/app.css');
-@import url('/resources/css/side_bar.css');
+@import url('../css/bootstrap.min.css');
+@import url('../css/login.css');
+@import url('../fonts/font-awesome-4.7.0/css/font-awesome.min.css');

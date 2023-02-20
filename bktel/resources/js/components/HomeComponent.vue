@@ -79,14 +79,6 @@
     position: absolute;
   }
   
-  body{
-    margin: 0;
-    padding:0;
-    display:flex ;
-    justify-content: center;
-    align-items: center;
-  }
-
 </style>
   <script>
 import * as faceapi from 'face-api.js'
