@@ -24,7 +24,7 @@
     <!-- Main css -->
     <link rel="stylesheet" href="resources\css\signup.css">
 </head>
-<body>
+<body >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -81,7 +81,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" style="padding-top:0rem !important; padding-bottom:0rem !important">
             @yield('content')
         </main>
     </div>
