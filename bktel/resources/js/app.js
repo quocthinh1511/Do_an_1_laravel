@@ -5,8 +5,17 @@
  */
 
 require('./bootstrap');
-require('./main');
+require('./fullheight');
+require('./dashboard3');
+require('./demo');
+require('./Chart');
+require('./adminlte')
+
+
+
+
 window.Vue = require('vue').default;
+window.axios = require('axios');
 
 
 
@@ -25,6 +34,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('side-bar-component', require('./components/SideBarComponent.vue').default);
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
 Vue.component('footer-component', require('./components/FooterComponent.vue').default);
+Vue.component('nav-bar-component', require('./components/navbarComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
