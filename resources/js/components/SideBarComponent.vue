@@ -52,7 +52,7 @@
       </ul>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a @click="take_photo = !take_photo" class="nav-link">
+          <a href="/take_photo" class="nav-link">
             <i class="fa fa-circle nav-icon"></i>
             <p>Take Photo</p>
           </a>
@@ -74,9 +74,7 @@
       <!-- /.sidebar -->
 
     </aside>
-      <div  style="padding-top: 0rem !important;" v-if="take_photo ==true"> 
-        <take-photo-component></take-photo-component>
-  </div>
+
   </div>
   </template>
 
@@ -86,7 +84,7 @@
       export default{
         data () {
           return {
-            take_photo:false
+          
       }
     },
         methods:{

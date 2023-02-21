@@ -19,10 +19,18 @@ Route::get('/', function () {
 Route::get('/detect', function () {
     return view('detect_face');
 });
+Route::get('/take_photo', function () {
+    return view('take_snap_shot');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+
+
 //Customer Controller 
 Route::post('/submit_customer', [App\Http\Controllers\CustomerController::class, 'store']);
+
+//Store image 
+Route::post('/store_image', [App\Http\Controllers\ImageController::class, 'store']);
