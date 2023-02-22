@@ -21,10 +21,9 @@
     </div>
 </div> -->
 <template>
-<nav-bar-component></nav-bar-component>
 <side-bar-component></side-bar-component> 
 <!-- <home-component></home-component> -->
-
+<nav-bar-component></nav-bar-component>
 </template>
 
 

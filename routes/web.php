@@ -27,10 +27,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-
-
 //Customer Controller 
 Route::post('/submit_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 
-//Store image 
 Route::post('/store_image', [App\Http\Controllers\ImageController::class, 'store']);

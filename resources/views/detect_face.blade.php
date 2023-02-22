@@ -26,7 +26,7 @@
 </head>
 <body style='display:flex; margin:0; padding:0; justify-content:center; text-align:center;' >
     <div id="app">
-       <home-component>     </home-component>
+       <home-component></home-component>
     </div>
 </body>
 </html>
