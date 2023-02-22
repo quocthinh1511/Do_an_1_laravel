@@ -24,9 +24,10 @@
 <side-bar-component></side-bar-component> 
 <!-- <home-component></home-component> -->
 <nav-bar-component></nav-bar-component>
+<footer-component><</footer-component>
 </template>
 
 
 
-<!-- <footer-component></footer-component> -->
+
 @endsection

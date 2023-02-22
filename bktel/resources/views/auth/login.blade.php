@@ -102,7 +102,7 @@
 	            </div>
 	            <div class="form-group d-md-flex">
 	            	<div class="w-50">
-		            	<label class="checkbox-wrap checkbox-primary" >Remember Me
+		            	<label class="checkbox-wrap checkbox-primary" style="color:white !important">Remember Me
 							<input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 								<span class="checkmark"></span>
 						</label>
@@ -119,7 +119,7 @@
               <p class="w-100 text-center">
                     <a href="register" style="color:white !important">&mdash; Create your account &mdash;</a>
                 </p>
-	          <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+	          <p class="w-100 text-center" style="margin-top:35px;color:white !important">&mdash; Or Sign In With &mdash;</p>
 	          <div class="social d-flex text-center">
 	          	<a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
 	          	<a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>

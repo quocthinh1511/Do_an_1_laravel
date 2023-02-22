@@ -42,7 +42,7 @@
       
       <!-- Logout -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="nav-link dropdown-toggle" style="padding:0">
             <a href="" class="user" style="color: black;text-decoration: none;font-family: 'Times New Roman', Times, serif;display: inline;font-size: 1rem;">{{ users }}</a>
           </i>
@@ -54,10 +54,9 @@
         </div>
       </li>
       
-      
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="fa fa-comments-o" aria-hidden="true"></i>
           <span style='--bs-badge-padding-x: 0.2em; --bs-badge-padding-y: 0.01em;' class="badge badge-danger navbar-badge">3</span>
         </a>
@@ -116,7 +115,7 @@
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="fa fa-bell" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

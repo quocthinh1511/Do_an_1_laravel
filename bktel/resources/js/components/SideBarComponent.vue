@@ -41,14 +41,34 @@
         <i class="right fa fa-arrow-down" aria-hidden="true"></i>
       </p>
     </a>
-    <ul class="nav nav-treeview">
+    <!-- Upload Customer -->
+    <ul class="nav nav-treeview" >
       <li class="nav-item">
-        <a href="upload_report" class="nav-link">
+        <a href="upload_customer" class="nav-link">
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
-          <p>Upload report</p>
+          <p style="color:white!important" >Upload customer</p>
         </a>
       </li>
     </ul>
+    <!-- Upload Staff -->
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="upload_staff" class="nav-link">
+          <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
+          <p style="color:white!important" >Upload Staff</p>
+        </a>
+      </li>
+    </ul>
+    <!-- Fill Info Staff -->
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="upload_staff" class="nav-link">
+          <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
+          <p style="color:white!important" >Fill Info Staff</p>
+        </a>
+      </li>
+    </ul>
+
   </li>
   </ul>
   </nav>
