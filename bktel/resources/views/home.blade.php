@@ -20,7 +20,13 @@
         </div>
     </div>
 </div> -->
-<!-- <side-bar-component></side-bar-component> -->
-<home-component></home-component>
+<template>
+<side-bar-component></side-bar-component> 
+<!-- <home-component></home-component> -->
+<nav-bar-component></nav-bar-component>
+</template>
+
+
+
 <!-- <footer-component></footer-component> -->
 @endsection

@@ -18,15 +18,13 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
-    <!-- Main css -->
-    <link rel="stylesheet" href="resources\css\signup.css">
 </head>
 <body >
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 <img class = 'logo_hcmut' src="https://thuvienvector.com/upload/images/items/vector-logo-truong-dai-hoc-bach-khoa-hcm-file-cdr-coreldraw-ai-217.webp" alt="" />
@@ -36,16 +34,16 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <!-- <ul class="navbar-nav me-auto">
 
-                    </ul>
+                    </ul> -->
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <!-- <ul class="navbar-nav ms-auto"> -->
                         <!-- Authentication Links -->
-                        @guest
+                        <!-- @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -57,8 +55,8 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else
-                            <li class="nav-item dropdown">
+                        @else -->
+                            <!-- <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -75,11 +73,11 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
-                    </ul>
+                        @endguest -->
+                    <!-- </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
 
         <main class="py-4" style="padding-top:0rem !important; padding-bottom:0rem !important">
             @yield('content')
