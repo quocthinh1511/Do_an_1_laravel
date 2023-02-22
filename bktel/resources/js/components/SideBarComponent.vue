@@ -1,6 +1,6 @@
 <template>
     <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 ftco-section img js-fullheight" style="background-image: url(images/bg.jpg);">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <!-- <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
@@ -35,16 +35,16 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
     <li class="nav-item menu-open">
     <a href="#" class="nav-link active">
-      <i class="nav-icon fas fa-tachometer-alt"></i>
+      <i class="fa fa-tachometer" aria-hidden="true"></i>
       <p>
         Features
-        <i class="right fas fa-angle-left"></i>
+        <i class="right fa fa-arrow-down" aria-hidden="true"></i>
       </p>
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
         <a href="upload_report" class="nav-link">
-          <i class="far fa-circle nav-icon"></i>
+          <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p>Upload report</p>
         </a>
       </li>

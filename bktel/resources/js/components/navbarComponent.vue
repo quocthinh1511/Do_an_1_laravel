@@ -32,7 +32,7 @@
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
                 <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
+                  <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
