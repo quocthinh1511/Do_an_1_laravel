@@ -10,12 +10,12 @@ require('./dashboard3');
 require('./demo');
 require('./Chart');
 require('./adminlte')
-Vue.use(axios);
+
 
 
 
 window.Vue = require('vue').default;
-
+window.axios = require('axios');
 
 
 

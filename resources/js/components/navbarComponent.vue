@@ -39,19 +39,21 @@
           </form>
         </div>
       </li>
-  
+      
       <!-- Logout -->
-      <div class="dropdown">
-  <i style="margin-top: 10px !important;" class=" fa fa-bell dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-
-  </i>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" @click = "Logout" href="#">Logout</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
-
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="nav-link dropdown-toggle" style="padding:0">
+            <a href="" class="user" style="color: black;text-decoration: none;font-family: 'Times New Roman', Times, serif;display: inline;font-size: 1rem;">{{ users }}</a>
+          </i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <a href="#" class="dropdown-item">
+            <button class="Logout" type="submit" @click="Logout">Logout</button>
+          </a>
+        </div>
+      </li>
+      
       
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
