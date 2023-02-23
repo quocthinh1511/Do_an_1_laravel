@@ -22,8 +22,11 @@
 </div> -->
 <template>
 <side-bar-component></side-bar-component> 
-<!-- <home-component></home-component> -->
+
 <nav-bar-component></nav-bar-component>
+
+<!-- <home-component></home-component> -->
+
 <footer-component><</footer-component>
 </template>
 

@@ -26,3 +26,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Customer Controller 
 Route::post('/submit_customer', [App\Http\Controllers\CustomerController::class, 'store']);
+Route::get('/show_name', [App\Http\Controllers\CustomerController::class, 'showName']);
