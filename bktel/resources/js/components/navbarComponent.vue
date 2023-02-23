@@ -41,7 +41,7 @@
       </li>
       
       <!-- Logout -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="nav-link dropdown-toggle" style="padding:0">
             <a href="" class="user" style="color: black;text-decoration: none;font-family: 'Times New Roman', Times, serif;display: inline;font-size: 1rem;">{{ users }}</a>
@@ -52,7 +52,15 @@
             <button class="Logout" type="submit" @click="Logout">Logout</button>
           </a>
         </div>
-      </li>
+      </li> -->
+      <li class="dropdown">
+  <a class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="uil uil-ellipsis-h"></i>
+      </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li> <i class="uil uil-signout"></i> <a class="dropdown-item"  @click="Logout">Logout</a></li>
+  </ul>
+</li>
       
       
       <!-- Messages Dropdown Menu -->
