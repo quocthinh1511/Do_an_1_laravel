@@ -1,10 +1,11 @@
 <template>
     <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4 ftco-section img js-fullheight" style="background-image: url(images/bg.jpg);">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 ftco-section img js-fullheight" style="background-image: url(https://img1.kienthucvui.vn/uploads/2019/10/27/hinh-nen-dep-cho-dien-thoai_111220841.jpg);">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <!-- <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">User</span>
+      <span class= 'text-side-bar' >BK Smart </span>
+
     </a>
     <!-- Sidebar -->
     <div class="sidebar">
@@ -43,9 +44,25 @@
     </a>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="upload_report" class="nav-link">
+        <a href="upload_report" class="nav-link" >
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p>Upload report</p>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="/detect_face" class="nav-link">
+          <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
+          <p>Detect Face</p>
+        </a>
+      </li>
+    </ul>
+    <ul class="nav nav-treeview">
+      <li class="nav-item">
+        <a href="/take_photo " class="nav-link">
+          <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
+          <p>Take Photo</p>
         </a>
       </li>
     </ul>
