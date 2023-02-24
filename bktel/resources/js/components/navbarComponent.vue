@@ -12,9 +12,7 @@
         <a href="home" class="nav-link">Home</a>
       </li>
       
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="up-image" class="nav-link">Upload Image</a>
-      </li>
+
     </ul>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">

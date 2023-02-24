@@ -70,6 +70,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
+import axios from 'axios';
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 const app = new Vue({

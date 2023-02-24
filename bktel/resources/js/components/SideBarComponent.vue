@@ -12,12 +12,13 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image" style="display: inline-block !important; width: 200px;" >
-          <img  @click="$bvModal.show('bv-modal-example')"  v-bind:src="img.path" alt="user"
-          style="  width: 30px;
-          height: 30px;
-          border-radius: 30% 30%;"
-           >
-                      <a href="#" class="d-block">Tri Thuc</a>
+          <img  @click="$bvModal.show('bv-modal-example')"  v-bind:src="img.path" alt="user                                                                                                `      "
+          style="  width: 50px;
+          height: 50px;
+          border: 0.1875em solid #0F1C3F;
+          border-radius: 50%;
+          box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);" >
+         <a style = "margin-left: 20px" href="#" class="">Tri Thuc</a>
         </div>
         <!-- <div class="image">
           <img :src="image" class="img-circle elevation-2" alt="User Image">
@@ -27,8 +28,8 @@
       Upload Avatar
     </template>
     <div class="d-block text-center">
-      <input type="file" class="form-control l " v-on:change="uploadFile" enctype ="multipart/form-data">
-        <button type="button" class="btn btn-primary custom-button margintop-20px" @click = 'submitAvatar'> Upload </button>
+      <input type="file" class=" " v-on:change="uploadFile" enctype ="multipart/form-data">
+        <button type="button" class="btn btn-primary" @click = 'submitAvatar'> Upload </button>
     </div>
     <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-example')">Close Me</b-button>
   </b-modal>

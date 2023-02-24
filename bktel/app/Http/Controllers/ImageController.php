@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Customer;
 class ImageController extends Controller
 {
     public function store(Request $request){ 
-
+        
         $img = $request -> image;
-        info($img);
+       
         $folderPath = "uploads/";
         
         $image_parts = explode(";base64,", $img);
@@ -17,11 +18,22 @@ class ImageController extends Controller
         $image_type = $image_type_aux[1];
         
         $image_base64 = base64_decode($image_parts[1]);
-        $fileName = uniqid() . '.png';
-        
-        $file = $folderPath . $fileName;
+        $customer_phone = $request -> phone_number;
+
+        $customer_name = $request ->name;
+        $fileName =  $customer_name. '.png';
+        //customer name la ten folder
+       
+
+        $file = 'public/'.$folderPath. $fileName;
+        // $file = 'public/'.$folderPath.$customer_name.'/'. $fileName;
         Storage::put($file, $image_base64);
-        
+        info($file);
+        info($folderPath);
+        $customer = Customer::create(['name' => $request -> name ,
+        'phone_number' => $request -> phone_number,
+        'land_mark' => $file]);
+        info($customer);
         dd('Image uploaded successfully: '.$fileName);
 
 
