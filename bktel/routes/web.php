@@ -31,3 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/submit_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 
 Route::post('/take_snap_shot', [App\Http\Controllers\ImageController::class, 'store']);
+
+//For image 
+Route::post('upload_img',[App\Http\Controllers\FileController::class, 'upload_img']);
+Route::post('show_img',[App\Http\Controllers\FileController::class, 'show_img']);
