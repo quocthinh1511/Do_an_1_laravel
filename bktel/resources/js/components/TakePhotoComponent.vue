@@ -25,7 +25,7 @@
           
         <video v-show="!isPhotoTaken" ref="camera" :width="450" :height="337.5" autoplay></video>
         
-        <canvas v-show="isPhotoTaken" id="photoTaken" ref="canvas" :width="450" :height="337.5"></canvas>
+        <canvas v-show="isPhotoTaken" id="photoTaken" ref="canvas" :width="450" :height="337.5"  style="margin-top: 350px; "></canvas>
       </div>
       
       <div v-if="isCameraOpen && !isLoading" class="camera-shoot">
@@ -35,6 +35,14 @@
       </div>
       
       <div v-if="isPhotoTaken && isCameraOpen" class="camera-download">
+        <div class = 'center_form'>
+            <label class ='white' for="first_name">Customer Name</label>
+            <input name="first_name" v-model="customer.name" placeholder="first name" class="form-control" />
+        </div>
+        <div class = 'center_form'>
+            <label class ='white' for="first_name">Phone Number</label>
+            <input name="first_name" v-model="customer.phone" placeholder="first name" class="form-control" />
+        </div>
         <a id="downloadPhoto" download="my-photo.jpg" class="button" role="button" @click="downloadImage">
           Download
         </a>
@@ -51,7 +59,11 @@
           isPhotoTaken: false,
           isShotPhoto: false,
           isLoading: false,
-          link: '#'
+          link: '#',
+          customer: { 
+            name: "", 
+            phone: ""
+          }
         }
       },
       methods: {
@@ -114,7 +126,9 @@
         .replace("image/jpeg", "image/octet-stream");
           download.setAttribute("href", canvas);
           axios.post('/take_snap_shot',{
-            image : canvas  
+            image : canvas ,
+            name : this.customer.name,
+            phone_number: this.customer.phone
           }
                    
                         

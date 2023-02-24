@@ -51,8 +51,10 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Họ và tên: Lê Quốc Thịnh 
-                                    <p>MSSV:2012112</p>
+                                  <p>   Họ và tên: Lê Quốc Thịnh </p>
+                                  <p>MSSV:2012112</p>
+                                  <p>   Họ và tên: Pham Tri Thuc </p>
+                                    <p>MSSV:</p>
                                 </div>
 
                             </div>

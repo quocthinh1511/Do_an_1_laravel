@@ -59,18 +59,7 @@
       
 
   <video id="video" width="720" height="560" autoplay muted></video>
-  <div class='center_form'>
-          <label class='black' for="first_name">Name</label>
-          <input name="name" v-model="customer.name" placeholder="Name" class="form-control " />
-        </div>
-        <div class='center_form'>
-          <label class='black' for="first_name">Phone Number</label>
-          <input name="phone_number" v-model="customer.phone_number" placeholder="Phone Number" class="form-control " />
-        </div>
-        <div class="centerr">
-          <button class="btn btn-primary center_form centerr but_student custom-button margintop-40px" @click="submit"> Submit
-          </button>
-        </div>
+
   </div>
 
   </template>
@@ -99,6 +88,7 @@ import  canvas from 'canvas'
        
           const video = document.getElementById('video')
           Promise.all([
+            faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
             faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
             faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
             faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
@@ -121,7 +111,7 @@ import  canvas from 'canvas'
               const displaySize = { width: video.width, height: video.height }
               faceapi.matchDimensions(canvas, displaySize)
               setInterval(async () => {
-              const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender()
+              const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptors()
 
              
               
@@ -130,14 +120,49 @@ import  canvas from 'canvas'
               faceapi.draw.drawDetections(canvas, resizedDetections)
               faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
               faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-              resizedDetections.forEach( detection => {
-              const box = detection.detection.box
-              const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
-              drawBox.draw(canvas)
-              })
+              // resizedDetections.forEach( detection => {
+              // const box = detection.detection.box
+              // // const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
+              // drawBox.draw(canvas)
+              // })
+          
+              const labels = ['Thinh','Phuong']
+
+const labeledFaceDescriptors = await Promise.all(
+    labels.map(async label => {
+
+        const imgUrl = `storage/uploads/${label}.png`
+        const img = await faceapi.fetchImage(imgUrl)
+        
+        const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+        
+        if (!faceDescription) {
+        throw new Error(`no faces detected for ${label}`)
+        }
+        
+        const faceDescriptors = [faceDescription.descriptor]
+        return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
+    })
+);
+
+const threshold = 0.4
+const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
+
+const results = detections.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+console.log(results);
+results.forEach((bestMatch, i) => {
+    const box = detections[i].detection.box
+    const text = bestMatch.toString()
+    const drawBox = new faceapi.draw.DrawBox(box, { label: text })
+    drawBox.draw(canvas)
+})
+
+
        
             }, 100)
+            
           })
+          
           }
       }
       ,
@@ -158,25 +183,7 @@ import  canvas from 'canvas'
         },
         onSlideEnd(slide) {
           this.sliding = false
-        },
-        async submit(){
-          
-          const video = document.getElementById('video')
-          Promise.all([
-            faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-            faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-            faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-            faceapi.nets.faceExpressionNet.loadFromUri('/models'),
-            faceapi.nets.ageGenderNet.loadFromUri('/models')
-          ])
-          const detectionWithLandmarks = await faceapi.detectSingleFace(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks()
-          console.log(detectionWithLandmarks);
-          await axios.post('submit_customer', {
-            name: this.customer.name,
-            phone_number : this.customer.phone_number,
-            land_mark: detectionWithLandmarks
-      })
-        } 
+        }
          }
       }
     
