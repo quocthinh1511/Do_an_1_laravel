@@ -23,7 +23,7 @@
         </a>
         <div class="navbar-search-block">
           <form class="form-inline">
-            <div class="input-group input-group-sm">
+            <div class="input-group input-group-sm" style="background-color: azure;">
               <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
               <div class="input-group-append">
                 <button class="btn btn-navbar" type="submit">
@@ -39,8 +39,8 @@
       </li>
       
       <!-- Logout -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="nav-link dropdown-toggle" style="padding:0">
             <a href="" class="user" style="color: black;text-decoration: none;font-family: 'Times New Roman', Times, serif;display: inline;font-size: 1rem;">{{ users }}</a>
           </i>
@@ -50,20 +50,20 @@
             <button class="Logout" type="submit" @click="Logout">Logout</button>
           </a>
         </div>
-      </li> -->
-      <li class="dropdown">
+      </li>
+      <!-- <li class="dropdown">
   <a class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
     <i class="uil uil-ellipsis-h"></i>
       </a>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <li> <i class="uil uil-signout"></i> <a class="dropdown-item"  @click="Logout">Logout</a></li>
   </ul>
-</li>
+</li> -->
       
       
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="fa fa-comments-o" aria-hidden="true"></i>
           <span style='--bs-badge-padding-x: 0.2em; --bs-badge-padding-y: 0.01em;' class="badge badge-danger navbar-badge">3</span>
         </a>
@@ -122,7 +122,7 @@
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
+        <a class="nav-link" data-bs-toggle="dropdown" href="#">
           <i class="fa fa-bell" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

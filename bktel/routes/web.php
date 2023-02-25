@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +30,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Customer Controller 
 Route::post('/submit_customer', [App\Http\Controllers\CustomerController::class, 'store']);
+
+Route::get('/show_name', [App\Http\Controllers\CustomerController::class, 'showName']); 
 
 Route::post('/take_snap_shot', [App\Http\Controllers\ImageController::class, 'store']);
 

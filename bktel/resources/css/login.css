@@ -1593,10 +1593,10 @@ pre {
   font-weight: 400;
   line-height: 1.5;
   color: #495057;
-  background-color: #fff;
+  background-color:rgba(0, 0, 0, 0) !important;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: 2.25rem !important;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -8267,7 +8267,7 @@ textarea.form-control {
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 500 !important;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

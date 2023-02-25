@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
+
 class CustomerController extends Controller
 {
     //
@@ -20,7 +22,12 @@ class CustomerController extends Controller
          'land_mark' => $land_mark_save
        ]);
          info($customer);
-    
-    
+    }
+
+    // showname_navbar
+    public function showName(Request $request)
+    {
+      $user = Auth::user()->name;
+      return $user;
     }
 }
