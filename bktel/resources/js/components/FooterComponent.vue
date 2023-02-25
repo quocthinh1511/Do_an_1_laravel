@@ -26,6 +26,7 @@
               <li class="list-unstyled"><a href="#!">Likelink</a></li>
             </ul>
           </mdb-col>
+        </mdb-row>
       </mdb-container>
       <div class="footer-copyright text-center py-3">
         <mdb-container fluid>
