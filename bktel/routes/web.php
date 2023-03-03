@@ -35,3 +35,6 @@ Route::post('/take_snap_shot', [App\Http\Controllers\ImageController::class, 'st
 //For image 
 Route::post('upload_img',[App\Http\Controllers\FileController::class, 'upload_img']);
 Route::post('show_img',[App\Http\Controllers\FileController::class, 'show_img']);
+
+
+Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);

@@ -21,12 +21,12 @@ class ImageController extends Controller
         $customer_phone = $request -> phone_number;
 
         $customer_name = $request ->name;
-        $fileName =  $customer_name. '.png';
+        $fileName = 'test.png';
         //customer name la ten folder
        
 
-        $file = 'public/'.$folderPath. $fileName;
-        // $file = 'public/'.$folderPath.$customer_name.'/'. $fileName;
+        // $file = 'public/'.$folderPath. $fileName;
+        $file = 'public/'.$folderPath.$customer_name.'/'. $fileName;
         Storage::put($file, $image_base64);
         info($file);
         info($folderPath);

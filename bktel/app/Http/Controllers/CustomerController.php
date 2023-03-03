@@ -21,6 +21,18 @@ class CustomerController extends Controller
        ]);
          info($customer);
     
-    
+    }
+    public function index(Request $request){
+      $arr_name = [];
+      $count =0;
+      $customers = Customer::all();
+      info($customers);
+      foreach($customers as $customer){
+        $arr_name[$count]= $customer -> name ; 
+        $count += 1; 
+      } 
+      info($arr_name);
+
+      return response()->json($arr_name);
     }
 }
