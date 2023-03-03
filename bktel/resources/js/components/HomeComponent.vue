@@ -84,8 +84,41 @@ import  canvas from 'canvas'
 
 
     export default {
+      data() {
+        return {
+          slide: 0,
+          sliding: null,
+          customer: {
+          name: ""        
+          },
+          count: []
+          
+        }
+      },
       mounted(){ 
-       
+
+
+      
+        axios.post('/index_name_customer')
+        .then(response => {
+          for(var i = 0 ; i< response.data.length;i++){
+          
+          this.count.push(response.data[i])
+          }
+
+        });
+        console.log(this.count)
+        const labels = this.count;
+
+    //   this.this.customer.forEach((value, index) => {
+    //     obj.push(value);
+    //     console.log(obj);
+  
+    // });
+
+
+        
+
           const video = document.getElementById('video')
           Promise.all([
             faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
@@ -103,7 +136,7 @@ import  canvas from 'canvas'
               err => console.error(err)
             )
      
-          
+            
           video.addEventListener('play', () => {
             
               const canvas = faceapi.createCanvasFromMedia(video)
@@ -126,12 +159,12 @@ import  canvas from 'canvas'
               // drawBox.draw(canvas)
               // })
           
-              const labels = ['Thinh','Phuong']
+
 
 const labeledFaceDescriptors = await Promise.all(
     labels.map(async label => {
 
-        const imgUrl = `storage/uploads/${label}.png`
+        const imgUrl = `storage/uploads/${label}/test.png`
         const img = await faceapi.fetchImage(imgUrl)
         
         const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
@@ -166,17 +199,7 @@ results.forEach((bestMatch, i) => {
           }
       }
       ,
-      data() {
-        return {
-          slide: 0,
-          sliding: null,
-          customer: {
-          name: "",
-          phone_number : "",
-          land_mark: ""
-          }
-        }
-      },
+     
       methods: {
         onSlideStart(slide) {
           this.sliding = true
