@@ -1,4 +1,5 @@
 <template>
+  <div>
     <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4 ftco-section img js-fullheight" style="background-image: url(https://img1.kienthucvui.vn/uploads/2019/10/27/hinh-nen-dep-cho-dien-thoai_111220841.jpg);">
     <!-- Brand Logo -->
@@ -38,11 +39,6 @@
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="form-control" style="background-color: rgba(0,0,0,0);color: black !important;">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </div>
         </div>
       </div>
 
@@ -59,8 +55,8 @@
     </a>
     <!-- Upload Customer -->
     <ul class="nav nav-treeview" >
-      <li class="nav-item">
-        <a href="upload_customer" class="nav-link">
+      <li class="nav-item" >
+        <a class="nav-link" @click="option=1" >
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p style="color:white!important" >Upload customer</p>
         </a>
@@ -107,11 +103,26 @@
     </div>
     <!-- /.sidebar -->
    </aside>
+
+
+   <upload-customer-component v-if='option==1'> </upload-customer-component >
+  </div>
 </template>
+
+  
 
 <script>
 
 export default {
+  data(){ 
+  return{
+    img: {
+    path: ""
+    },
+    option:0
+}
+  
+},
   mounted(){
         axios.post('show_img')
         .then(response => {
@@ -119,14 +130,7 @@ export default {
             console.log(response.data);
         })
       },
-data(){ 
-  return{
-    img: {
-    path: ""
-  }
-  }
-  
-},
+
 methods: {
   async uploadFile(event){
         this.img.path = event.target.files[0];
