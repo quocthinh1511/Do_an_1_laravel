@@ -1,57 +1,37 @@
 <template>
-    <!-- Footer -->
-    <mdb-footer style='background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHfhBU8PPHr50EMutAn2gBf0j4EqV3MfyaSQ&usqp=CAU);
-     background-repeat: no-repeat; background-position: center; margin-top: 0px !important ;margin-bottom: -25px !important; clear:both' class="font-small pt-4 mt-4">
-      <mdb-container class="text-left">
-        <mdb-row>
-          <mdb-col sm="6">
-            <h5 class="title">BK Learning</h5>
-            <p>Khoa Điện - Điện Tử</p>
-          </mdb-col>
-          <mdb-col sm="6">
-            <h5 class="title">Địa chỉ</h5>
-            <ul>
-              <li class="list-unstyled"><a href="#!">268 Lí Thường Kiệt</a></li>
-              <li class="list-unstyled"><a href="#!">Quận 10</a></li>
-
-            </ul>
-          </mdb-col>
-        </mdb-row>
-          <mdb-col sm="6">
-            <h5 class="title">Contact</h5>
-            <ul>
-              <li class="list-unstyled"><a href="#!">Facebook</a></li>
-              <li class="list-unstyled"><a href="#!">Zalo</a></li>
-              <li class="list-unstyled"><a href="#!">Instagram</a></li>
-              <li class="list-unstyled"><a href="#!">Likelink</a></li>
-            </ul>
-          </mdb-col>
-        </mdb-row>
-      </mdb-container>
-      <div class="footer-copyright text-center py-3">
-        <mdb-container fluid>
-          &copy; 2020 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-        </mdb-container>
+  <div>
+  <footer class="main-footer container img js-fullheight" style="background-image: url(images/bg.jpg);max-width: -webkit-fill-available !important;">
+    <div class="row">
+      <div class="col-6 col-md-3 mb-3">
+        <h5 style="color:black">About</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2" ><a href="#" class="nav-link p-0 text-muted" style="color:white!important">Home</a></li>
+          <li class="nav-item mb-2" ><a href="#" class="nav-link p-0 text-muted" style="color:white!important">Features</a></li>
+          <li class="nav-item mb-2" ><a href="#" class="nav-link p-0 text-muted" style="color:white!important">Pricing</a></li>
+          <li class="nav-item mb-2" ><a href="#" class="nav-link p-0 text-muted" style="color:white!important">FAQs</a></li>
+          <li class="nav-item mb-2" ><a href="#" class="nav-link p-0 text-muted" style="color:white!important">About</a></li>
+        </ul>
       </div>
-    </mdb-footer>
-    <!-- Footer -->
-  </template>
-  <script>
-
-  import {
-    mdbFooter,
-    mdbContainer,
-    mdbRow,
-    mdbCol
-  } from 'mdbvue';
-  
-  export default {
-    name: 'FooterPage',
-    components: {
-      mdbFooter,
-      mdbContainer,
-      mdbRow,
-      mdbCol
-    }
-  }
-</script>
+      <div class="col-6 col-md-3 mb-3">
+        <h5 style="color:black">Social Network</h5>
+          <ul class="nav flex-column">
+          <li class="nav-item mb-2" ><a href="https://www.facebook.com" class="nav-link p-0 text-muted" style="color:white!important">Facebook</a></li>
+          <li class="nav-item mb-2" ><a href="https://www.instagram.com/" class="nav-link p-0 text-muted" style="color:white!important">Instagram</a></li>
+          <li class="nav-item mb-2" ><a href="https://www.tiktok.com/" class="nav-link p-0 text-muted" style="color:white!important">Tiktok</a></li>
+          <li class="nav-item mb-2" ><a href="https://www.youtube.com/" class="nav-link p-0 text-muted" style="color:white!important">Youtube</a></li>
+          <li class="nav-item mb-2" ><a href="https://www.linkedin.com/" class="nav-link p-0 text-muted" style="color:white!important">Linkedlin</a></li>
+            </ul>
+      </div>
+           
+    </div>
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p style="font-weight: 700;color:aliceblue;z-index: 2;">&copy; 2022 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="#"></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"></a></li>
+        <li class="ms-3"><a class="link-dark" href="#"></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
+</template>
