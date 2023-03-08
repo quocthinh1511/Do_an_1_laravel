@@ -28,10 +28,10 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-//Customer Controller 
-Route::post('/submit_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 
-Route::get('/show_name', [App\Http\Controllers\CustomerController::class, 'showName']); 
+
+
+Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
 
 Route::post('/take_snap_shot', [App\Http\Controllers\ImageController::class, 'store']);
 
@@ -40,4 +40,6 @@ Route::post('upload_img',[App\Http\Controllers\FileController::class, 'upload_im
 Route::post('show_img',[App\Http\Controllers\FileController::class, 'show_img']);
 
 
+Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
+Route::post('/create_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
