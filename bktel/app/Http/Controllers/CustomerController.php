@@ -10,16 +10,16 @@ class CustomerController extends Controller
 {
     //
     public function store(Request $request) {
-        $land_mark = $request -> land_mark; 
-        $var  = gettype($land_mark);
-        info($land_mark['unshiftedLandmarks']['_positions'][0]['_x']);
-        info($var);
-       $land_mark_save = $land_mark['unshiftedLandmarks']['_positions'];
-       info($land_mark_save);
+      $customer_name = $request -> name ;
+      if($request->hasFile('img_path')){
+        $file_name = 'test.png';
+        $file_path = $request->file('img_path') ->storeAs('public/uploads/'.$customer_name, $file_name, 'local');
+    }   
+       $img_path = $file_path; 
        $customer = Customer::create(
         ['name' => $request -> name,
-         'phone_number' => $request -> phone_number,
-         'land_mark' => $land_mark_save
+         'phone_number' => $request -> phone,
+         'land_mark' => $img_path
        ]);
          info($customer);
     

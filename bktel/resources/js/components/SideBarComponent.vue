@@ -65,7 +65,7 @@
     <!-- Upload Staff -->
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="upload_staff" class="nav-link">
+        <a href="#" class="nav-link" @click="option=2">
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p style="color:white!important" >Upload Staff</p>
         </a>
@@ -74,7 +74,7 @@
     <!-- Fill Info Staff -->
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="upload_staff" class="nav-link">
+        <a @click="option=3" href="#" class="nav-link">
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p style="color:white!important" >Fill Info Staff</p>
         </a>
@@ -82,7 +82,7 @@
     </ul>
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a href="/detect_face" class="nav-link">
+        <a  href="/detect_face" class="nav-link">
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p style="color:white!important">Detect Face</p>
         </a>

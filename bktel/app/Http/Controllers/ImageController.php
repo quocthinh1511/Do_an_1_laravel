@@ -8,7 +8,7 @@ use App\Models\Customer;
 class ImageController extends Controller
 {
     public function store(Request $request){ 
-        
+        //Store customer when taking photo
         $img = $request -> image;
        
         $folderPath = "uploads/";
