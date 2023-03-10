@@ -34,6 +34,6 @@ class FileController extends Controller
         $user_id = Auth::user()->id;
         $user = User::where('id',$user_id )->first();
         $url =  $user -> profile_image_url ; 
-        return response() -> json('storage'.$url);
+        return response() -> json('storage/'.$url);
     }
 }

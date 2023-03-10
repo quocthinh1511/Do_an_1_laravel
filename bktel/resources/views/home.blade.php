@@ -21,13 +21,13 @@
     </div>
 </div> -->
 <template>
-<side-bar-component></side-bar-component> 
+
 
 <nav-bar-component></nav-bar-component>
 
 <!-- <home-component></home-component> -->
-
-<footer-component><</footer-component>
+<side-bar-component></side-bar-component> 
+<footer-component></footer-component>
 </template>
 
 
