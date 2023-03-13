@@ -11,9 +11,5 @@ class Customer extends Model
     protected $fillable = [
         'name',
         'phone_number',
-        'land_mark'
     ];
-    protected $casts = [
-        'land_mark' => 'array'
-        ];
 }

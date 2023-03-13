@@ -1,63 +1,5 @@
 <template >
 <div>
-      <!-- <b-carousel
-        id="carousel-1"
-        v-model="slide"
-        :interval="4000"
-        controls
-        indicators
-        background="#ababab"
-        img-width="1024"
-        img-height="480"
-        style="text-shadow: 1px 1px 2px #333;"
-        @sliding-start="onSlideStart"
-        @sliding-end="onSlideEnd"
-      > -->
-        <!-- Text slides with image -->
-        <!-- <b-carousel-slide
-          caption="First slide"
-          text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-          img-src="https://picsum.photos/1024/480/?image=52"
-        ></b-carousel-slide> -->
-  
-        <!-- Slides with custom text -->
-        <!-- <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-          <h1>Hello world!</h1>
-        </b-carousel-slide> -->
-  
-        <!-- Slides with image only -->
-        <!-- <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide> -->
-  
-        <!-- Slides with img slot -->
-        <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
-        <!-- <b-carousel-slide>
-          <template #img>
-            <img
-              class="d-block img-fluid w-100"
-              width="1024"
-              height="480"
-              src="https://picsum.photos/1024/480/?image=55"
-              alt="image slot"
-            >
-          </template>
-        </b-carousel-slide> -->
-  
-        <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-        <!-- <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-            a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-          </p>
-        </b-carousel-slide>
-      </b-carousel>
-      -->
-
-      <!-- <p class="mt-4">
-        Slide #: {{ slide }}<br>
-        Sliding: {{ sliding }}
-      </p> -->
-      
-
   <video id="video" width="720" height="560" autoplay muted></video>
 
   </div>
@@ -73,16 +15,12 @@
 import * as faceapi from 'face-api.js'
 // all faces
 
-
 // implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
 import  canvas from 'canvas'
-
 
 // patch nodejs environment, we need to provide an implementation of
 // HTMLCanvasElement and HTMLImageElement, additionally an implementation
 // of ImageData is required, in case you want to use the MTCNN
-
-
     export default {
       data() {
         return {
@@ -96,30 +34,14 @@ import  canvas from 'canvas'
         }
       },
       mounted(){ 
-
-
-      
         axios.post('/index_name_customer')
         .then(response => {
           for(var i = 0 ; i< response.data.length;i++){
-          
           this.count.push(response.data[i])
           }
-
         });
-        console.log(this.count)
         const labels = this.count;
-
-    //   this.this.customer.forEach((value, index) => {
-    //     obj.push(value);
-    //     console.log(obj);
-  
-    // });
-
-
-        
-
-          const video = document.getElementById('video')
+        const video = document.getElementById('video')
           Promise.all([
             faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
             faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -146,8 +68,6 @@ import  canvas from 'canvas'
               setInterval(async () => {
               const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptors()
 
-             
-              
               const resizedDetections = faceapi.resizeResults(detections, displaySize)
               canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
               faceapi.draw.drawDetections(canvas, resizedDetections)
@@ -158,23 +78,22 @@ import  canvas from 'canvas'
               // // const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
               // drawBox.draw(canvas)
               // })
-          
 
+              const labeledFaceDescriptors = await Promise.all(
+                    labels.map(async label => {
 
-const labeledFaceDescriptors = await Promise.all(
-    labels.map(async label => {
-
-        const imgUrl = `storage/uploads/${label}/test.png`
-        const img = await faceapi.fetchImage(imgUrl)
+              const imgUrl = `storage/uploads/${label}/test.png`
+              console.log(imgUrl);
+              const img = await faceapi.fetchImage(imgUrl)
         
-        const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
+              const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
         
-        if (!faceDescription) {
-        throw new Error(`no faces detected for ${label}`)
-        }
+                if (!faceDescription) {
+                throw new Error(`no faces detected for ${label}`)
+                }
         
-        const faceDescriptors = [faceDescription.descriptor]
-        return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
+              const faceDescriptors = [faceDescription.descriptor]
+              return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
     })
 );
 
@@ -189,16 +108,11 @@ results.forEach((bestMatch, i) => {
     const drawBox = new faceapi.draw.DrawBox(box, { label: text })
     drawBox.draw(canvas)
 })
-
-
-       
-            }, 100)
-            
-          })
+    }, 100)
+        })
           
-          }
-      }
-      ,
+ }
+      },
      
       methods: {
         onSlideStart(slide) {

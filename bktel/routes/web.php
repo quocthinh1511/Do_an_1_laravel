@@ -31,6 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+Route::get('/show_name',[App\Http\Controllers\CustomerController::class,'showName']);
 Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
 
 Route::post('/take_snap_shot', [App\Http\Controllers\ImageController::class, 'store']);

@@ -17,7 +17,6 @@ class CreateTableCustomers extends Migration
             $table->id();
             $table->string('name');
             $table->string('phone_number');
-            $table->json('land_mark')->nullable();
             $table->timestamps();
         });
     }   

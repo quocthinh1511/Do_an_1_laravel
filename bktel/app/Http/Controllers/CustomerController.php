@@ -30,33 +30,17 @@ class CustomerController extends Controller
       $customers = Customer::all();
       info($customers);
       foreach($customers as $customer){
-        $arr_name[$count]= $customer -> name ; 
-        $count += 1; 
-      } 
-      info($arr_name);
-
+          $arr_name[$count]= $customer -> name ; 
+          $count += 1; 
+        }    
       return response()->json($arr_name);
-    }
-        }
-        public function index(Request $request){
-          $arr_name = [];
-          $count =0;
-          $customers = Customer::all();
-          info($customers);
-          foreach($customers as $customer){
-            $arr_name[$count]= $customer -> name ; 
-            $count += 1; 
-          } 
-          info($arr_name);
-    
-          return response()->json($arr_name);
 
-        }
+    }
     
         // showname_navbar
-        public function showName(Request $request)
-        {
+    public function showName(Request $request)
+    {
           $user = Auth::user()->name;
           return $user;
-        }
+    }
 }
