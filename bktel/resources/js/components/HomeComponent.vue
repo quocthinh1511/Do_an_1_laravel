@@ -17,6 +17,7 @@ import * as faceapi from 'face-api.js'
 
 // implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
 import  canvas from 'canvas'
+import { AnchorPosition } from 'tfjs-image-recognition-base/build/commonjs/draw';
 
 // patch nodejs environment, we need to provide an implementation of
 // HTMLCanvasElement and HTMLImageElement, additionally an implementation
@@ -60,7 +61,6 @@ import  canvas from 'canvas'
      
             
           video.addEventListener('play', () => {
-            
               const canvas = faceapi.createCanvasFromMedia(video)
               document.body.append(canvas)
               const displaySize = { width: video.width, height: video.height }
@@ -73,11 +73,11 @@ import  canvas from 'canvas'
               faceapi.draw.drawDetections(canvas, resizedDetections)
               faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
               faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-              // resizedDetections.forEach( detection => {
-              // const box = detection.detection.box
-              // // const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender })
-              // drawBox.draw(canvas)
-              // })
+              resizedDetections.forEach( detection => {
+              const box = detection.detection.box
+              const drawBox = new faceapi.draw.DrawBox(box, { label: Math.round(detection.age) + " year old " + detection.gender, drawLabelOptions: {anchorPosition: AnchorPosition.TOP_RIGHT} },)
+              drawBox.draw(canvas)
+              })
 
               const labeledFaceDescriptors = await Promise.all(
                     labels.map(async label => {
