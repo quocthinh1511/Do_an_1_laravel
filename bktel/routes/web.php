@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/detect_face', function () {
     return view('detect_face');
 });
@@ -42,5 +43,6 @@ Route::post('show_img',[App\Http\Controllers\FileController::class, 'show_img'])
 
 
 Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
+Route::post('/index_quantity_customer',[App\Http\Controllers\CustomerController::class,'index_quantity']);
 Route::post('/create_customer', [App\Http\Controllers\CustomerController::class, 'store']);
-Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
+

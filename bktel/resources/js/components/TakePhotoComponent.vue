@@ -1,11 +1,16 @@
 <template>
 
 
+<div>
+  <button type="button" class="mt-3" @click="returnHome" style="margin-bottom: 50px; background-color: white; padding: 10px; border-radius: 10px;">
+          Return Home
+        </button>
 
 
     <div id="app" class="web-camera-container">
+ 
       <div class="camera-button">
-          <button type="button" class="button is-rounded" :class="{ 'is-primary' : !isCameraOpen, 'is-danger' : isCameraOpen}" @click="toggleCamera">
+          <button style="margin-bottom: 50px; background-color: white; padding: 10px; border-radius: 10px;" type="button" class="button is-rounded" :class="{ 'is-primary' : !isCameraOpen, 'is-danger' : isCameraOpen}" @click="toggleCamera">
             <span v-if="!isCameraOpen">Open Camera</span>
             <span v-else>Close Camera</span>
         </button>
@@ -48,7 +53,7 @@
         </a>
       </div>
     </div>
-    
+  </div>
     </template>
     
     <script >
@@ -78,7 +83,9 @@
             this.createCameraElement();
           }
         },
-        
+        returnHome(){
+          window.location.href = "/home"
+        },
         createCameraElement() {
           this.isLoading = true;
           

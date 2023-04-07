@@ -74,7 +74,7 @@
         </div>
     </div>
 </div> -->
-<section class="ftco-section img js-fullheight" style="background-image: url(images/bg.jpg);">
+<section class="ftco-section img js-fullheight" style="background-image: url(images/bg.jpg); padding-bottom :135px">
 		<div class="container">
             <div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
