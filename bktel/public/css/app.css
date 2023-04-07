@@ -10474,13 +10474,10 @@ padding: 0px 0px !important;
 
 .text-side-bar { 
     font-size: 25px;
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjLExsGoJVfqzhGrxqZVe9DQgnj7QZnY8Tzw&usqp=CAU");
-    -webkit-background-clip: text;
-    color:transparent;
     background-position: center;
     background-size: 100%;
     font-weight: 900;
     font-size: 35px;
-
+    text-decoration: none !important;
 }
 

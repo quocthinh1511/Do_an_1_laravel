@@ -24,6 +24,7 @@
 
 
 <nav-bar-component></nav-bar-component>
+<dashboard-component></dashboard-component>
 
 <!-- <home-component></home-component> -->
 <side-bar-component></side-bar-component> 

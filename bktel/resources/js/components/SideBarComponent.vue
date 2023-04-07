@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4 ftco-section img js-fullheight" style="background-image: url(https://img1.kienthucvui.vn/uploads/2019/10/27/hinh-nen-dep-cho-dien-thoai_111220841.jpg);">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4 ftco-section img js-fullheight" style="background-image: url(images/bg.jpg);">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
       <!-- <img src="images/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->

@@ -43,4 +43,14 @@ class CustomerController extends Controller
           $user = Auth::user()->name;
           return $user;
     }
+    public function index_quantity(Request $request){
+      $customers = Customer::all() ;
+      $quantity = $customers -> count();
+      info($quantity);
+      return response()->json($quantity);
+
+
+
+
+    }
 }

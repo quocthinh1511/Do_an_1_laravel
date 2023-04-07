@@ -37,6 +37,7 @@ Vue.component('footer-component', require('./components/FooterComponent.vue').de
 Vue.component('nav-bar-component', require('./components/navbarComponent.vue').default);
 Vue.component('take-photo-component', require('./components/TakePhotoComponent.vue').default);
 Vue.component('upload-customer-component', require('./components/UploadCustomerComponent.vue').default);
+Vue.component('dashboard-component', require('./components/DashboardComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
