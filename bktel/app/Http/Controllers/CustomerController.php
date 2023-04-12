@@ -21,8 +21,6 @@ class CustomerController extends Controller
          'phone_number' => $request -> phone,
          'land_mark' => $img_path
        ]);
-         info($customer);
-    
     }
     public function index(Request $request){
       $arr_name = [];

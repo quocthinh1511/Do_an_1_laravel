@@ -26,11 +26,8 @@ class FileController extends Controller
          }
          $user -> profile_image_url =  $file_path ; 
          $user ->save();
-        //  return response() -> json('C:/Users/admin/Documents/bktel-feature-student-crud-quocthinh/bktel/storage/app/public'.$file_path);
-
     }
     public function show_img(Request $request){ 
-
         $user_id = Auth::user()->id;
         $user = User::where('id',$user_id )->first();
         $url =  $user -> profile_image_url ; 
