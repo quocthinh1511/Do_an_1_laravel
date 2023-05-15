@@ -1,10 +1,14 @@
 <template >
 <div>
   <video id="video" width="720" height="560" autoplay muted></video>
-
+  <div class="center_form mt-4 text-black">
+      <button @click = 'returnHome' class="btn btn-primary"> 
+        Return Home
+            </button>
   </div>
-
+  </div>
   </template>
+  
   <style>
   canvas{
     position: absolute;
@@ -81,17 +85,13 @@ import { AnchorPosition } from 'tfjs-image-recognition-base/build/commonjs/draw'
 
               const labeledFaceDescriptors = await Promise.all(
                     labels.map(async label => {
-
               const imgUrl = `storage/uploads/${label}/test.png`
               console.log(imgUrl);
               const img = await faceapi.fetchImage(imgUrl)
-        
               const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
-        
                 if (!faceDescription) {
                 throw new Error(`no faces detected for ${label}`)
                 }
-        
               const faceDescriptors = [faceDescription.descriptor]
               return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
     })
@@ -115,12 +115,9 @@ results.forEach((bestMatch, i) => {
       },
      
       methods: {
-        onSlideStart(slide) {
-          this.sliding = true
+        returnHome(){
+          window.location.href = "/home"
         },
-        onSlideEnd(slide) {
-          this.sliding = false
-        }
          }
       }
     

@@ -11,6 +11,7 @@ class CustomerController extends Controller
     //
     public function store(Request $request) {
       $customer_name = $request -> name ;
+      $customer_phone = $request -> phone ;
       if($request->hasFile('img_path')){
         $file_name = 'test.png';
         $file_path = $request->file('img_path') ->storeAs('public/uploads/'.$customer_name, $file_name, 'local');
@@ -28,7 +29,7 @@ class CustomerController extends Controller
       $customers = Customer::all();
       info($customers);
       foreach($customers as $customer){
-          $arr_name[$count]= $customer -> name ; 
+          $arr_name[$count]= $customer -> name; 
           $count += 1; 
         }    
       return response()->json($arr_name);
