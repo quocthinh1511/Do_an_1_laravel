@@ -86,17 +86,17 @@ $(function () {
         type: 'line',
         data: [100, 120, 170, 167, 180, 177, 160],
         backgroundColor: 'transparent',
-        borderColor: '#007bff',
+        borderColor: 'black',
         pointBorderColor: '#007bff',
         pointBackgroundColor: '#007bff',
-        fill: false
+        fill: true
         // pointHoverBackgroundColor: '#007bff',
         // pointHoverBorderColor    : '#007bff'
       },
       {
         type: 'line',
         data: [60, 80, 70, 67, 80, 77, 100],
-        backgroundColor: 'tansparent',
+        backgroundColor: 'transparent',
         borderColor: '#ced4da',
         pointBorderColor: '#ced4da',
         pointBackgroundColor: '#ced4da',

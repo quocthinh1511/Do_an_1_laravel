@@ -10,6 +10,7 @@ require('./dashboard3');
 require('./demo');
 require('./Chart');
 require('./adminlte')
+require('./adminlte');
 
 
 
