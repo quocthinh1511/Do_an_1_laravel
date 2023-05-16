@@ -16,6 +16,8 @@ class CreateCurrentCustomersTable extends Migration
         Schema::create('current_customers', function (Blueprint $table) {
             $table->id();
             $table -> string('name');
+            $table -> string('age') -> nullable();
+            $table -> string ('gender') -> nullable();
             $table->timestamps();
         });
     }

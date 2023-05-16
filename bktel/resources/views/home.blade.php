@@ -24,7 +24,9 @@
 
 
 <nav-bar-component></nav-bar-component>
-<dashboard-component  :name_cus="{{ json_encode($name_cus) }}"></dashboard-component>
+<dashboard-component  :name_cus="{{ json_encode($name_cus) }}"
+    :age="{{ json_encode($age) }}"
+:gender="{{ json_encode($gender) }}"></dashboard-component>
 
 <!-- <home-component></home-component> -->
 <side-bar-component></side-bar-component> 

@@ -53,20 +53,19 @@ class CustomerController extends Controller
 
     }
     public function show_cus_name(Request $request){ 
+          info($request);
           $name_send = $request['text_res'];
           $lens =strlen($name_send);
-          info($lens);
          $name_cus = substr($name_send,0,$lens-6);
-         info($name_cus);
-
          $current_customer = CurrentCustomer::find(1);
          if( $current_customer ){
           $current_customer -> name =  $name_cus;
-          info($current_customer -> name);
+          $current_customer -> gender = $request['gender'];
+          $current_customer -> age = $request['age'];
           $current_customer -> save();
          }
          else{
-          $current_customer = CurrentCustomer::create(['name' => $request -> text_res]);
+          $current_customer = CurrentCustomer::create(['name' => $name_cus, 'age' =>  $request['age'], 'gender' =>  $request['age']]);
          }
          info($current_customer);
         //  return view('home', compact('name_cus'));

@@ -108,13 +108,17 @@ import { boneBreak } from 'fontawesome';
   results.forEach((bestMatch, i) => {
     const box = detections[i].detection.box
     const text = bestMatch.toString();
-    
     if(text){
-      axios.post('/res_name_cus',{
+      resizedDetections.forEach( detection => {
+        axios.post('/res_name_cus',{
           text_res :  text,
+          age : Math.round(detection.age), 
+          gender : detection.gender
         }).then(
           window.location.href = 'home'
         );;
+              })
+     
              
     }
 

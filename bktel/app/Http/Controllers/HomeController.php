@@ -26,12 +26,14 @@ class HomeController extends Controller
         if(CurrentCustomer::find(1)){
             $customer = CurrentCustomer::find(1);
             $name_cus = $customer -> name;
+            $age = $customer -> age;
+            $gender = $customer -> gender;
         }
         else{
             $name_cus = null;
         }
         
 
-        return view('home', compact('name_cus'));
+        return view('home', compact('name_cus','age','gender'));
     }
 }
