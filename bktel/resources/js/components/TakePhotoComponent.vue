@@ -134,7 +134,7 @@
             phone_number: this.customer.phone
           }      
           )
-          // .then(window.location.href='home')
+          .then(window.location.href='home')
         }
     }
   }

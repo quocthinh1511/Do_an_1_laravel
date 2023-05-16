@@ -6,12 +6,14 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Dashboard v3</h1>
+          <h1 class="m-0">BK SMART </h1>
+          <p class="m-0" v-if="name_cus != null && name_cus != 'unknown'">Welcome {{ name_cus }} to our Market! What to you want to buy?</p>
+          <p class="m-0" v-if="name_cus != null && name_cus == 'unknown'">May be this first time you go to our Market? Do you want to be a member?</p>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard v3</li>
+            <li class="breadcrumb-item active">{{ name_cus }}</li>
           </ol>
         </div><!-- /.col -->
       </div><!-- /.row -->
@@ -274,5 +276,21 @@
 </template>
 
 <script>
+export default {
+  data(){ 
+  return{
+    name: ""
+}
+  
+},
 
+  props:{
+    name_cus: {
+            type: String,
+            default() {
+                return "";
+            }
+        },
+  }
+}
 </script>

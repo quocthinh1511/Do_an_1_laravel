@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +43,7 @@ Route::post('show_img',[App\Http\Controllers\FileController::class, 'show_img'])
 
 
 Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
+Route::post('/res_name_cus',[App\Http\Controllers\CustomerController::class,'show_cus_name']);
 Route::post('/index_quantity_customer',[App\Http\Controllers\CustomerController::class,'index_quantity']);
 Route::post('/create_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 

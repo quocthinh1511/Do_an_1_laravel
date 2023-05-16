@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\CurrentCustomer;
 class CustomerController extends Controller
 {
     //
@@ -50,6 +50,27 @@ class CustomerController extends Controller
 
 
 
+
+    }
+    public function show_cus_name(Request $request){ 
+          $name_send = $request['text_res'];
+          $lens =strlen($name_send);
+          info($lens);
+         $name_cus = substr($name_send,0,$lens-6);
+         info($name_cus);
+
+         $current_customer = CurrentCustomer::find(1);
+         if( $current_customer ){
+          $current_customer -> name =  $name_cus;
+          info($current_customer -> name);
+          $current_customer -> save();
+         }
+         else{
+          $current_customer = CurrentCustomer::create(['name' => $request -> text_res]);
+         }
+         info($current_customer);
+        //  return view('home', compact('name_cus'));
+  
 
     }
 }

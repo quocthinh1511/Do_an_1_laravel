@@ -22,6 +22,7 @@ import * as faceapi from 'face-api.js'
 // implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
 import  canvas from 'canvas'
 import { AnchorPosition } from 'tfjs-image-recognition-base/build/commonjs/draw';
+import { boneBreak } from 'fontawesome';
 
 // patch nodejs environment, we need to provide an implementation of
 // HTMLCanvasElement and HTMLImageElement, additionally an implementation
@@ -34,7 +35,8 @@ import { AnchorPosition } from 'tfjs-image-recognition-base/build/commonjs/draw'
           customer: {
           name: ""        
           },
-          count: []
+          count: [],
+          cus_res_name : ""
           
         }
       },
@@ -86,7 +88,7 @@ import { AnchorPosition } from 'tfjs-image-recognition-base/build/commonjs/draw'
               const labeledFaceDescriptors = await Promise.all(
                     labels.map(async label => {
               const imgUrl = `storage/uploads/${label}/test.png`
-              console.log(imgUrl);
+              // console.log(imgUrl);
               const img = await faceapi.fetchImage(imgUrl)
               const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
                 if (!faceDescription) {
@@ -97,17 +99,37 @@ import { AnchorPosition } from 'tfjs-image-recognition-base/build/commonjs/draw'
     })
 );
 
-const threshold = 0.4
-const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
+  const threshold = 0.4
+  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
 
-const results = detections.map(fd => faceMatcher.findBestMatch(fd.descriptor))
-console.log(results);
-results.forEach((bestMatch, i) => {
+    const results = detections.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+// console.log(results);
+
+  results.forEach((bestMatch, i) => {
     const box = detections[i].detection.box
-    const text = bestMatch.toString()
+    const text = bestMatch.toString();
+    
+    if(text){
+      axios.post('/res_name_cus',{
+          text_res :  text,
+        }).then(
+          window.location.href = 'home'
+        );;
+             
+    }
+
+
+    
     const drawBox = new faceapi.draw.DrawBox(box, { label: text })
-    drawBox.draw(canvas)
-})
+    drawBox.draw(canvas);
+
+}
+)
+// window.location.href='home'
+
+
+
+
     }, 100)
         })
           
