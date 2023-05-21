@@ -26,16 +26,19 @@ class ImageController extends Controller
        
 
         // $file = 'public/'.$folderPath. $fileName;
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone_number' => 'required|regex:/[0-9]/|unique:customers',
+        ]);
         $file = 'public/'.$folderPath.$customer_name.'/'. $fileName;
         Storage::put($file, $image_base64);
-        info($file);
-        info($folderPath);
-        $customer = Customer::create(['name' => $request -> name ,
-        'phone_number' => $request -> phone_number,
-        'land_mark' => $file]);
-        info($customer);
-        dd('Image uploaded successfully: '.$fileName);
-
-
+        $customer = Customer::create([
+            'name' => $request -> name ,
+            'phone_number' => $request -> phone_number
+        ]);
+        // $customer->validate([
+        //     'name' => 'bail|required|unique:posts|max:255',
+        //     'phone_number' => 'required',
+        // ]);
     }
 }

@@ -74,7 +74,7 @@
     <!-- Fill Info Staff -->
     <ul class="nav nav-treeview">
       <li class="nav-item">
-        <a @click="option=3" href="#" class="nav-link">
+        <a href="#" class="nav-link" @click="option=3">
           <i class="fa fa-circle-thin nav-icon" aria-hidden="true"></i>
           <p style="color:white!important" >Fill Info Staff</p>
         </a>
@@ -108,11 +108,7 @@
    <upload-customer-component v-if='option==1'> </upload-customer-component >
   </div>
 </template>
-
-  
-
 <script>
-
 export default {
   data(){ 
   return{
@@ -159,6 +155,4 @@ methods: {
     }
   }
 }
-
-
 </script>

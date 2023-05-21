@@ -2,7 +2,7 @@
 
 
 <div>
-  <button type="button" class="mt-3" @click="returnHome" style="margin-bottom: 50px; background-color: white; padding: 10px; border-radius: 10px;">
+  <button type="button" class="mt-3 mb-3" @click="returnHome" style="background-color: white; padding: 10px; border-radius: 10px;">
           Return Home
         </button>
 
@@ -18,9 +18,6 @@
       
       <div v-show="isCameraOpen && isLoading" class="camera-loading">
         <ul class="loader-circle">
-          <li></li>
-          <li></li>
-          <li></li>
         </ul>
       </div>
       
@@ -46,16 +43,16 @@
         </div>
         <div class = 'center_form'>
             <label class ='white' for="first_name">Phone Number</label>
-            <input name="first_name" v-model="customer.phone" placeholder="first name" class="form-control" />
+            <input name="first_name" v-model="customer.phone" placeholder="Your phone" class="form-control" />
         </div>
         <a id="downloadPhoto" download="my-photo.jpg" class="button" role="button" @click="downloadImage">
-          Download
+          Done
         </a>
       </div>
     </div>
   </div>
     </template>
-    
+
     <script >
     export default{
         data() {
@@ -88,7 +85,6 @@
         },
         createCameraElement() {
           this.isLoading = true;
-          
           const constraints = (window.constraints = {
                     audio: false,
                     video: true
@@ -128,22 +124,20 @@
         },
         
         downloadImage() {
-          const download = document.getElementById("downloadPhoto");
+        //   const download = document.getElementById("downloadPhoto");
           const canvas = document.getElementById("photoTaken").toDataURL("image/jpeg")
-        .replace("image/jpeg", "image/octet-stream");
-          download.setAttribute("href", canvas);
+        // .replace("image/jpeg", "image/octet-stream");
+        //   download.setAttribute("href", canvas);
           axios.post('/take_snap_shot',{
             image : canvas ,
             name : this.customer.name,
             phone_number: this.customer.phone
-          }
-                   
-                        
-            );;
-          
+          }      
+          )
+          .then(window.location.href='home')
         }
-      }
     }
-    </script>
-    <style>
-    </style>
+  }
+  </script>
+  <style>
+  </style>
