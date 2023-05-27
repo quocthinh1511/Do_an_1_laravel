@@ -18,7 +18,7 @@
           border: 0.1875em solid #0F1C3F;
           border-radius: 50%;
           box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);" >
-         <a style = "margin-left: 20px" href="#" class="">Tri Thuc</a>
+         <a style = "margin-left: 20px; color: white !important" href="#" class="">{{ name }}</a>
         </div>
         <b-modal id="bv-modal-example" hide-footer>
             <template modal-title>
@@ -115,6 +115,7 @@ export default {
     img: {
     path: ""
     },
+    name: "",
     option:0
 }
   
@@ -122,8 +123,8 @@ export default {
   mounted(){
         axios.post('show_img')
         .then(response => {
-            this.img.path = response.data;
-            console.log(response.data);
+            this.img.path = response.data[0];
+            this.name = response.data[1];
         })
       },
 

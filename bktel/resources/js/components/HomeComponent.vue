@@ -2,7 +2,7 @@
 <div>
   <video id="video" width="720" height="560" autoplay muted></video>
   <div class="center_form mt-4 text-black">
-      <button @click = 'returnHome' class="btn btn-primary"> 
+      <button @click = 'returnHome' class="btn  custom-button" style = 'background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;'> 
         Return Home
             </button>
   </div>
@@ -13,6 +13,23 @@
   canvas{
     position: absolute;
   }
+  .custom-button{
+    border: none;   
+    border-radius: 4px; 
+    box-shadow: 0 5px 0 #ffffff;
+    transition: .5s;
+}
+.custom-button:active{ 
+    box-shadow: none;
+    transform: translateY(5px);
+}
+.custom-button:hover{ 
+  background-color:  #badaf0;
+}
+.black{
+  color:black !important;
+}
+
   
 </style>
   <script>
