@@ -31,6 +31,8 @@ class HomeController extends Controller
         }
         else{
             $name_cus = null;
+            $age = null;
+            $gender = "";
         }
         
 

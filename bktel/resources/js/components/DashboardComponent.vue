@@ -10,7 +10,7 @@
         <div class="col-sm-6">
           <h1 class="m-0 mb-3">BK SMART </h1>
           <p class="m-0" v-if="name_cus != null && name_cus != 'unknown'">Welcome {{ name_cus }} to our Market! What to you want to buy?</p>
-          <p class="m-0" v-if="name_cus != null && name_cus === 'unknown'">May be this first time you go to our Market? Do you want to be a member?</p>
+          <p class="m-0" v-if="name_cus != null && name_cus == 'unknown' ">May be this first time you go to our Market? Do you want to be a member?</p>
           <button class="m-0 " v-if="name_cus != null && name_cus === 'unknown'" @click="take_photo_page">Become a Member now!</button>
         </div><!-- /.col -->
         <div class="col-sm-6">
@@ -290,7 +290,7 @@
                 <a href="javascript:void(0);">View Report</a>
               </div>
             </div>
-            <div class="card-body" v-if = 'age > 15'>
+            <div class="card-body" v-if = 'age < 15'>
               <div class="d-flex">
                 <p class="d-flex flex-column">
                   <span class="text-bold text-lg">$18,230.00</span>
@@ -321,7 +321,7 @@
               </div>
               
             </div>
-            <div class="card" style="width: 30rem;">
+            <div class="card" style="width: 30rem;" v-if ='age < 15'>
   <img class="card-img-top" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
   <div class="card-body">
     <p class="card-text">Robots combine sensors, computation, and motors to interact intelligently with their environment. Robot toys need to be so cheap and robust that they can be used as playthings.</p>

@@ -35,7 +35,6 @@ class CustomerController extends Controller
       return response()->json($arr_name);
 
     }
-    
         // showname_navbar
     public function showName(Request $request)
     {
@@ -47,10 +46,6 @@ class CustomerController extends Controller
       $quantity = $customers -> count();
       info($quantity);
       return response()->json($quantity);
-
-
-
-
     }
     public function show_cus_name(Request $request){ 
           info($request);
@@ -58,16 +53,16 @@ class CustomerController extends Controller
           $lens =strlen($name_send);
          $name_cus = substr($name_send,0,$lens-6);
          $current_customer = CurrentCustomer::find(1);
-         if( $current_customer ){
+        if( $current_customer ){
           $current_customer -> name =  $name_cus;
           $current_customer -> gender = $request['gender'];
           $current_customer -> age = $request['age'];
           $current_customer -> save();
          }
-         else{
+        else{
           $current_customer = CurrentCustomer::create(['name' => $name_cus, 'age' =>  $request['age'], 'gender' =>  $request['age']]);
          }
-         info($current_customer);
+        //  info($current_customer);
         //  return view('home', compact('name_cus'));
   
 

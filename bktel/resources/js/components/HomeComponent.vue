@@ -99,11 +99,11 @@ import { boneBreak } from 'fontawesome';
     })
 );
 
-  const threshold = 0.4
+  const threshold = 0.6
   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
 
     const results = detections.map(fd => faceMatcher.findBestMatch(fd.descriptor))
-// console.log(results);
+    console.log(results);
 
   results.forEach((bestMatch, i) => {
     const box = detections[i].detection.box
