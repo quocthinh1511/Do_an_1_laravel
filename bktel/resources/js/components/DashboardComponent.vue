@@ -3,6 +3,8 @@
 <div class="content-wrapper "  
 :class="{'background-dash': age < 15 
                                                 }">
+
+
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -309,22 +311,26 @@
           <!-- /.card -->
         </div>
         <!-- /.col-md-6 -->
-        <div class="col-lg-6">
+        <div v-if="age ==null" style="width: 100%; height: 80%; margin-top :20px; text-align: center;">
+
+         <h1> Welcome to our Mart!</h1>
+        </div>
+        <div class="col-lg-6" v-if = "age != null">
           <div class="card" >
             <div class="card-header border-0" >
               <div class="d-flex justify-content-between" >
                 <h3 class="card-title">Sales</h3>
               </div>
             </div>
-            <div class="card-body" v-if = 'age > 15'>
+            <div class="card-body" v-if = 'age > 15 && age!=null' >
               <!--  -->
-              <img class="card-img-top" src="https://bange.com.vn/wp-content/uploads/2021/07/123-2-1.jpg" alt="Card image cap"> 
+              <img class="card-img-top" style="width: 100% height:100%;" src="https://bange.com.vn/wp-content/uploads/2021/07/123-2-1.jpg" alt="Card image cap"> 
   <div class="card-body">
     <h2> Only 50$</h2>
   </div>
             </div>
-            <div class="card" style="width: 30rem; margin-left:50px; margin-top: 10px;" v-if = 'age < 15'>
-  <img class="card-img-top" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
+        <div class="card" style="width: 30rem; margin-left:50px; margin-top: 10px;" v-if = 'age < 15 && age != null'>
+  <img class="card-img-top" style="width: 100% height:100%;" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
   <div class="card-body">
     <h2> Only 80$</h2>
     <p class="card-text">Robots combine sensors, computation, and motors to interact intelligently with their environment. Robot toys need to be so cheap and robust that they can be used as playthings.</p>

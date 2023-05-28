@@ -2,7 +2,7 @@
 
 
 <div>
-  <button type="button" class="mt-3 mb-3 custom-button" @click="returnHome" style="background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;">
+  <button type="button" class="mt-3 mb-3 custom-button" @click="returnHome" style="background-color: rgb(255, 173, 119); padding: 10px; border-radius: 10px;">
           Return Home
         </button>
 
@@ -10,7 +10,7 @@
     <div id="app" class="web-camera-container">
  
       <div class="camera-button">
-          <button style="margin-bottom: 50px; background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;" type="button" class=" custom-button button is-rounded"  @click="toggleCamera">
+          <button style="margin-bottom: 50px;background-color: rgb(255, 173, 119); padding: 10px; border-radius: 10px;" type="button" class=" custom-button button is-rounded"  @click="toggleCamera">
             <span v-if="!isCameraOpen">Open Camera</span>
             <span v-else>Close Camera</span>
         </button>
@@ -45,7 +45,7 @@
             <label class ='' for="first_name">Phone Number</label>
             <input name="first_name" v-model="customer.phone" placeholder="Your phone" class="form-control black" />
         </div>
-        <button id="downloadPhoto" download="my-photo.jpg" class="button custom-button mt-3" role="button" @click="downloadImage" style="background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;">
+        <button id="downloadPhoto" download="my-photo.jpg" class="button custom-button mt-3" role="button" @click="downloadImage" style="background-color: rgb(255, 173, 119); padding: 10px; border-radius: 10px;">
           Done
         </button>
       </div>

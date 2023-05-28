@@ -2,7 +2,7 @@
 <div>
   <video id="video" width="720" height="560" autoplay muted></video>
   <div class="center_form mt-4 text-black">
-      <button @click = 'returnHome' class="btn  custom-button" style = 'background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;'> 
+      <button @click = 'returnHome' class="btn  custom-button" style = 'background-color: rgb(255, 173, 119); padding: 10px; border-radius: 10px;'> 
         Return Home
             </button>
   </div>
