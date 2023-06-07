@@ -2,7 +2,7 @@
 
 
 <div>
-  <button type="button" class="mt-3 mb-3" @click="returnHome" style="background-color: white; padding: 10px; border-radius: 10px;">
+  <button type="button" class="mt-3 mb-3 custom-button" @click="returnHome" style="background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;">
           Return Home
         </button>
 
@@ -10,7 +10,7 @@
     <div id="app" class="web-camera-container">
  
       <div class="camera-button">
-          <button style="margin-bottom: 50px; background-color: white; padding: 10px; border-radius: 10px;" type="button" class="button is-rounded" :class="{ 'is-primary' : !isCameraOpen, 'is-danger' : isCameraOpen}" @click="toggleCamera">
+          <button style="margin-bottom: 50px; background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;" type="button" class=" custom-button button is-rounded"  @click="toggleCamera">
             <span v-if="!isCameraOpen">Open Camera</span>
             <span v-else>Close Camera</span>
         </button>
@@ -37,22 +37,40 @@
       </div>
       
       <div v-if="isPhotoTaken && isCameraOpen" class="camera-download">
-        <div class = 'center_form'>
-            <label class ='white' for="first_name">Customer Name</label>
-            <input name="first_name" v-model="customer.name" placeholder="first name" class="form-control" />
+        <div class = 'center_form black'>
+            <label class ='' for="first_name">Customer Name</label>
+            <input name="first_name" v-model="customer.name" placeholder="first name" class="form-control black" />
         </div>
         <div class = 'center_form'>
-            <label class ='white' for="first_name">Phone Number</label>
-            <input name="first_name" v-model="customer.phone" placeholder="Your phone" class="form-control" />
+            <label class ='' for="first_name">Phone Number</label>
+            <input name="first_name" v-model="customer.phone" placeholder="Your phone" class="form-control black" />
         </div>
-        <a id="downloadPhoto" download="my-photo.jpg" class="button" role="button" @click="downloadImage">
+        <button id="downloadPhoto" download="my-photo.jpg" class="button custom-button mt-3" role="button" @click="downloadImage" style="background-color: rgb(155, 236, 253); padding: 10px; border-radius: 10px;">
           Done
-        </a>
+        </button>
       </div>
     </div>
   </div>
     </template>
+<style>
+.custom-button{
+    border: none;   
+    border-radius: 4px; 
+    box-shadow: 0 5px 0 #ffffff;
+    transition: .5s;
+}
+.custom-button:active{ 
+    box-shadow: none;
+    transform: translateY(5px);
+}
+.custom-button:hover{ 
+  background-color:  #badaf0;
+}
+.black{
+  color:black !important;
+}
 
+  </style>
     <script >
     export default{
         data() {
@@ -80,9 +98,13 @@
             this.createCameraElement();
           }
         },
+
+        
         returnHome(){
           window.location.href = "/home"
         },
+
+        //opencamera
         createCameraElement() {
           this.isLoading = true;
           const constraints = (window.constraints = {
@@ -101,6 +123,7 @@
                     });
         },
         
+        //close camera
         stopCameraStream() {
           let tracks = this.$refs.camera.srcObject.getTracks();
                 tracks.forEach(track => {
@@ -108,6 +131,7 @@
                 });
         },
         
+        //takephoto
         takePhoto() {
           if(!this.isPhotoTaken) {
             this.isShotPhoto = true;
@@ -116,18 +140,14 @@
               this.isShotPhoto = false;
             }, FLASH_TIMEOUT);
           }
-          
           this.isPhotoTaken = !this.isPhotoTaken;
-          
           const context = this.$refs.canvas.getContext('2d');
           context.drawImage(this.$refs.camera, 0, 0, 450, 337.5);
         },
         
+        //downphototofolder
         downloadImage() {
-        //   const download = document.getElementById("downloadPhoto");
           const canvas = document.getElementById("photoTaken").toDataURL("image/jpeg")
-        // .replace("image/jpeg", "image/octet-stream");
-        //   download.setAttribute("href", canvas);
           axios.post('/take_snap_shot',{
             image : canvas ,
             name : this.customer.name,

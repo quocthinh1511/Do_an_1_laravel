@@ -29,8 +29,11 @@ class FileController extends Controller
     }
     public function show_img(Request $request){ 
         $user_id = Auth::user()->id;
+        $name = Auth::user()->name;
         $user = User::where('id',$user_id )->first();
         $url =  $user -> profile_image_url ; 
-        return response() -> json('storage/'.$url);
+        $url_send = 'storage/'.$url;
+        $data = [$url_send,$name];
+        return response() -> json($data);
     }
 }

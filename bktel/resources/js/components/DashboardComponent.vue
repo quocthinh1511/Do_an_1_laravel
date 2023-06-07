@@ -1,8 +1,7 @@
 <template>
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper "  
-:class="{'background-dash': age < 15 
-                                                }">
+<div class="content-wrapper"  
+:class="{'background-dash': age < 15 }">
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -11,7 +10,9 @@
           <h1 class="m-0 mb-3">BK SMART </h1>
           <p class="m-0" v-if="name_cus != null && name_cus != 'unknown'">Welcome {{ name_cus }} to our Market! What to you want to buy?</p>
           <p class="m-0" v-if="name_cus != null && name_cus === 'unknown'">May be this first time you go to our Market? Do you want to be a member?</p>
-          <button class="m-0 " v-if="name_cus != null && name_cus === 'unknown'" @click="take_photo_page">Become a Member now!</button>
+          <p class="mt-1"  v-if="name_cus != null && name_cus === 'unknown'">(Being a member, you will receive some coupons and next shopping.)</p>
+          <button class="m-0 hover_member" v-if="name_cus != null && name_cus === 'unknown'" @click="take_photo_page">Become a Member now!</button>
+
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -29,44 +30,34 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-6">
-          <div class="card"  >
-            <div class="card-header border-0">
-              <div class="d-flex justify-content-between">
-                <h3 class="card-title">Online Store Visitors</h3>
-                <a href="javascript:void(0);">View Report</a>
-              </div>
-            </div>
+          <div class="card"  v-if="name_cus != null && name_cus !== 'unknown'"  >
+            <div class="container mt-5"> <div class="d-flex justify-content-center row"> 
+              <div class="col-md-6"> <div class="coupon p-3 bg-white"> 
+                <div class="row no-gutters">
+                  <div class="col-md-4 border-right"> 
+                    <div class="d-flex flex-column align-items-center">
+                      <img style= "width: 80px; height: 50px; border-radius: 10px;" src="https://i.pinimg.com/originals/33/fa/e4/33fae413c57d5098f41ccef368012b48.jpg">
+                      <span class="d-block">DEE Shop</span>
+                      <span class="text-black-50">All items </span>
+                    </div> </div>
+                     <div class="col-md-8"> <div> 
+                      <div class="d-flex flex-row justify-content-end off"> <h1>30%</h1><span>OFF</span></div> 
+                      <div class="d-flex flex-row justify-content-between off px-3 p-2"><span>Code:</span><span class="border border-success px-3 rounded code">BBB50</span></div> </div> </div> </div> </div> </div> </div> </div>
+                      
+                      <div class="container mt-5"> <div class="d-flex justify-content-center row"> 
+              <div class="col-md-6"> <div class="coupon p-3 bg-white"> 
+                <div class="row no-gutters">
+                  <div class="col-md-4 border-right"> 
+                    <div class="d-flex flex-column align-items-center">
+                      <img style= "width: 80px; height: 50px; border-radius: 10px;" src="https://incucdep.com/wp-content/uploads/2014/12/logo-thoi-trang.jpg">
+                      <span class="d-block">BK Shop</span>
+                      <span class="text-black-50">All items </span>
+                    </div> </div>
+                     <div class="col-md-8"> <div> 
+                      <div class="d-flex flex-row justify-content-end off"> <h1>50%</h1><span>OFF</span></div> 
+                      <div class="d-flex flex-row justify-content-between off px-3 p-2"><span>Code:</span><span class="border border-success px-3 rounded code">DDD15</span></div> </div> </div> </div> </div> </div> </div> </div>
             <div class="card-body">
-              <div class="d-flex">
-                <p class="d-flex flex-column">
-                  <span class="text-bold text-lg">820</span>
-                  <span>Visitors Over Time</span>
-                </p>
-                <p class="ml-auto d-flex flex-column text-right">
-                  <span class="text-success">
-                    <i class="fa fa-arrow-up"></i> 12.5%
-                  </span>
-                  <span class="text-muted">Since last week</span>
-                </p>
-              </div>
-              
-              <!-- /.d-flex -->
-
-              <div class="position-relative mb-4" style="height:200px !important">
-                <canvas id="visitors-chart" height="200" ></canvas>
-              </div>
-
-              <div class="d-flex flex-row justify-content-end">
-                <span class="mr-2">
-                  <i class="fa fa-square text-primary"></i> This Week
-                </span>
-
-                <span>
-                  <i class="fa fa-square text-gray"></i> Last Week
-                </span>
-              </div>
             </div>
-            
           </div>
           <!-- /.card -->
           
@@ -174,7 +165,7 @@
               </table>
             </div>
           </div>
-          <div class="card" v-if=" gender=='male' ">
+          <div class="card" v-if="gender=='male' ">
             <div class="card-header border-0">
               <h3 class="card-title">Products</h3>
               <div class="card-tools">
@@ -287,102 +278,28 @@
             <div class="card-header border-0" >
               <div class="d-flex justify-content-between" >
                 <h3 class="card-title">Sales</h3>
-                <a href="javascript:void(0);">View Report</a>
               </div>
             </div>
+
+            //age>15
             <div class="card-body" v-if = 'age > 15'>
-              <div class="d-flex">
-                <p class="d-flex flex-column">
-                  <span class="text-bold text-lg">$18,230.00</span>
-                  <span>Sales Over Time</span>
-                </p>
-                <p class="ml-auto d-flex flex-column text-right">
-                  <span class="text-success">
-                    <i class="fa fa-arrow-up"></i> 33.1%
-                  </span>
-                  <span class="text-muted">Since last month</span>
-                </p>
-              </div>
-              
-              <!-- /.d-flex -->
-
-              <div class="position-relative mb-4">
-                <canvas id="sales-chart" height="200"></canvas>
-              </div>
-
-              <div class="d-flex flex-row justify-content-end">
-                <span class="mr-2">
-                  <i class="fa fa-square text-primary"></i> This year
-                </span>
-
-                <span>
-                  <i class="fa fa-square text-gray"></i> Last year
-                </span>
-              </div>
-              
+              <!--  -->
+              <img class="card-img-top" src="https://bange.com.vn/wp-content/uploads/2021/07/123-2-1.jpg" alt="Card image cap"> 
+            <div class="card-body">
+              <h2> Only 50$</h2>
             </div>
-            <div class="card" style="width: 30rem;">
-  <img class="card-img-top" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
-  <div class="card-body">
-    <p class="card-text">Robots combine sensors, computation, and motors to interact intelligently with their environment. Robot toys need to be so cheap and robust that they can be used as playthings.</p>
-  </div>
-</div>
+            </div>
+            <div class="card" style="width: 30rem; margin-left:50px; margin-top: 10px;" v-if = 'age < 15'>
+            <img class="card-img-top" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
+            <div class="card-body">
+            <h2> Only 80$</h2>
+            <p class="card-text">Robots combine sensors, computation, and motors to interact intelligently with their environment. Robot toys need to be so cheap and robust that they can be used as playthings.</p>
+          </div>
+        </div>
 
             
           </div>
           <!-- /.card -->
-
-          <div class="card">
-            <div class="card-header border-0">
-              <h3 class="card-title">Online Store Overview</h3>
-              <div class="card-tools">
-                <a href="#" class="btn btn-sm btn-tool">
-                  <i class="fa fa-download"></i>
-                </a>
-                <a href="#" class="btn btn-sm btn-tool">
-                  <i class="fa fa-bars"></i>
-                </a>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                <p class="text-success text-xl">
-                  <i class="ion ion-ios-refresh-empty"></i>
-                </p>
-                <p class="d-flex flex-column text-right">
-                  <span class="font-weight-bold">
-                    <i class="ion ion-android-arrow-up text-success"></i> 12%
-                  </span>
-                  <span class="text-muted">CONVERSION RATE</span>
-                </p>
-              </div>
-              <!-- /.d-flex -->
-              <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                <p class="text-warning text-xl">
-                  <i class="ion ion-ios-cart-outline"></i>
-                </p>
-                <p class="d-flex flex-column text-right">
-                  <span class="font-weight-bold">
-                    <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
-                  </span>
-                  <span class="text-muted">SALES RATE</span>
-                </p>
-              </div>
-              <!-- /.d-flex -->
-              <div class="d-flex justify-content-between align-items-center mb-0">
-                <p class="text-danger text-xl">
-                  <i class="ion ion-ios-people-outline"></i>
-                </p>
-                <p class="d-flex flex-column text-right">
-                  <span class="font-weight-bold">
-                    <i class="ion ion-android-arrow-down text-danger"></i> 1%
-                  </span>
-                  <span class="text-muted">REGISTRATION RATE</span>
-                </p>
-              </div>
-              <!-- /.d-flex -->
-            </div>
-          </div>
         </div>
         <!-- /.col-md-6 -->
       </div>
@@ -397,10 +314,13 @@
 <style>
 
 .background-dash{
-  background-image: url(https://anhdep123.com/bo-suu-tap-42-anh-nen-cho-thieu-nhi-tre-em/anh-bong-bay-thieu-nhi/);
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: white;
 }
+.hover_member:hover {
+  text-decoration: underline;
+  color: rgb(0, 29, 143)
+}
+.coupon{border-radius: 12px;box-shadow: 5px 8px 10px #d6d5d533}body{background: rgb(251, 253, 255)}.code:hover{background: green;color: #fff;cursor: pointer}
 </style>
 <script>
 export default {

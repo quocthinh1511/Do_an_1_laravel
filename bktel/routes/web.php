@@ -33,8 +33,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::get('/show_name',[App\Http\Controllers\CustomerController::class,'showName']);
-Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
-
 Route::post('/take_snap_shot', [App\Http\Controllers\ImageController::class, 'store']);
 
 //For image 
@@ -44,6 +42,5 @@ Route::post('show_img',[App\Http\Controllers\FileController::class, 'show_img'])
 
 Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::class,'index']);
 Route::post('/res_name_cus',[App\Http\Controllers\CustomerController::class,'show_cus_name']);
-Route::post('/index_quantity_customer',[App\Http\Controllers\CustomerController::class,'index_quantity']);
 Route::post('/create_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 
