@@ -58,6 +58,7 @@ import { boneBreak } from 'fontawesome';
         }
       },
       mounted(){ 
+        //find customers
         axios.post('/index_name_customer')
         .then(response => {
           for(var i = 0 ; i< response.data.length;i++){
@@ -65,6 +66,8 @@ import { boneBreak } from 'fontawesome';
           }
         });
         const labels = this.count;
+        
+        //loading models
         const video = document.getElementById('video')
           Promise.all([
             faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
@@ -75,6 +78,7 @@ import { boneBreak } from 'fontawesome';
             faceapi.nets.ageGenderNet.loadFromUri('/models')
           ]).then(startVideo)
           
+        
           function startVideo() {
             navigator.getUserMedia(
               { video: {} },
@@ -82,15 +86,14 @@ import { boneBreak } from 'fontawesome';
               err => console.error(err)
             )
      
-            
+            //facial detect
           video.addEventListener('play', () => {
               const canvas = faceapi.createCanvasFromMedia(video)
               document.body.append(canvas)
               const displaySize = { width: video.width, height: video.height }
               faceapi.matchDimensions(canvas, displaySize)
-              setInterval(async () => {
+              setInterval(async()=>{
               const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptors()
-
               const resizedDetections = faceapi.resizeResults(detections, displaySize)
               canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
               faceapi.draw.drawDetections(canvas, resizedDetections)
@@ -102,10 +105,10 @@ import { boneBreak } from 'fontawesome';
               drawBox.draw(canvas)
               })
 
+              //face detect
               const labeledFaceDescriptors = await Promise.all(
                     labels.map(async label => {
               const imgUrl = `storage/uploads/${label}/test.png`
-              // console.log(imgUrl);
               const img = await faceapi.fetchImage(imgUrl)
               const faceDescription = await faceapi.detectSingleFace(img).withFaceLandmarks().withFaceDescriptor()
                 if (!faceDescription) {
@@ -115,53 +118,37 @@ import { boneBreak } from 'fontawesome';
               return new faceapi.LabeledFaceDescriptors(label, faceDescriptors)
     })
 );
-
-  const threshold = 0.4
-  const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
-
-    const results = detections.map(fd => faceMatcher.findBestMatch(fd.descriptor))
-// console.log(results);
-
-  results.forEach((bestMatch, i) => {
-    const box = detections[i].detection.box
-    const text = bestMatch.toString();
-    if(text){
-      resizedDetections.forEach( detection => {
-        axios.post('/res_name_cus',{
-          text_res :  text,
-          age : Math.round(detection.age), 
-          gender : detection.gender
-        }).then(
-          window.location.href = 'home'
-        );;
-              })
-     
-             
-    }
-
-
-    
-    const drawBox = new faceapi.draw.DrawBox(box, { label: text })
-    drawBox.draw(canvas);
-
-}
-)
-// window.location.href='home'
-
-
-
-
-    }, 100)
-        })
-          
- }
-      },
-     
+              //face recognition
+              const threshold = 0.4
+              const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, threshold)
+              const results = detections.map(fd => faceMatcher.findBestMatch(fd.descriptor))
+              results.forEach((bestMatch, i) => {
+              const box = detections[i].detection.box
+              const text = bestMatch.toString();
+              if(text){
+                resizedDetections.forEach( detection => {
+                  //link to dashboard
+                  axios.post('/res_name_cus',{
+                    text_res :  text,
+                    age : Math.round(detection.age), 
+                    gender : detection.gender
+                  }).then(
+                    window.location.href = 'home'
+                  );
+                        })   
+              }
+              const drawBox = new faceapi.draw.DrawBox(box, { label: text })
+              drawBox.draw(canvas);
+                  }
+                  )
+                }, 100)
+                    })
+            }
+                  },
       methods: {
         returnHome(){
           window.location.href = "/home"
         },
          }
       }
-    
   </script>

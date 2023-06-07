@@ -98,9 +98,13 @@
             this.createCameraElement();
           }
         },
+
+        
         returnHome(){
           window.location.href = "/home"
         },
+
+        //opencamera
         createCameraElement() {
           this.isLoading = true;
           const constraints = (window.constraints = {
@@ -119,6 +123,7 @@
                     });
         },
         
+        //close camera
         stopCameraStream() {
           let tracks = this.$refs.camera.srcObject.getTracks();
                 tracks.forEach(track => {
@@ -126,6 +131,7 @@
                 });
         },
         
+        //takephoto
         takePhoto() {
           if(!this.isPhotoTaken) {
             this.isShotPhoto = true;
@@ -134,18 +140,14 @@
               this.isShotPhoto = false;
             }, FLASH_TIMEOUT);
           }
-          
           this.isPhotoTaken = !this.isPhotoTaken;
-          
           const context = this.$refs.canvas.getContext('2d');
           context.drawImage(this.$refs.camera, 0, 0, 450, 337.5);
         },
         
+        //downphototofolder
         downloadImage() {
-        //   const download = document.getElementById("downloadPhoto");
           const canvas = document.getElementById("photoTaken").toDataURL("image/jpeg")
-        // .replace("image/jpeg", "image/octet-stream");
-        //   download.setAttribute("href", canvas);
           axios.post('/take_snap_shot',{
             image : canvas ,
             name : this.customer.name,

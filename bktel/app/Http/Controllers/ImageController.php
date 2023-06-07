@@ -8,6 +8,7 @@ use App\Models\Customer;
 class ImageController extends Controller
 {
     public function store(Request $request){ 
+        
         //Store customer when taking photo
         $img = $request -> image;
        
@@ -25,7 +26,7 @@ class ImageController extends Controller
         //customer name la ten folder
        
 
-        // $file = 'public/'.$folderPath. $fileName;
+       //validate and save customer
         $request->validate([
             'name' => 'required|max:255',
             'phone_number' => 'required|regex:/[0-9]/|unique:customers',
@@ -36,9 +37,5 @@ class ImageController extends Controller
             'name' => $request -> name ,
             'phone_number' => $request -> phone_number
         ]);
-        // $customer->validate([
-        //     'name' => 'bail|required|unique:posts|max:255',
-        //     'phone_number' => 'required',
-        // ]);
     }
 }
