@@ -1,7 +1,10 @@
 <template>
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper"  
-:class="{'background-dash': age < 15 }">
+<div class="content-wrapper "  
+:class="{'background-dash': age < 15 
+                                                }">
+
+
   <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
@@ -56,8 +59,43 @@
                      <div class="col-md-8"> <div> 
                       <div class="d-flex flex-row justify-content-end off"> <h1>50%</h1><span>OFF</span></div> 
                       <div class="d-flex flex-row justify-content-between off px-3 p-2"><span>Code:</span><span class="border border-success px-3 rounded code">DDD15</span></div> </div> </div> </div> </div> </div> </div> </div>
+            <!-- <div class="card-header border-0">
+              <div class="d-flex justify-content-between">
+                <h3 class="card-title">Online Store Visitors</h3>
+                <a href="javascript:void(0);">View Report</a>
+              </div>
+            </div> -->
             <div class="card-body">
+              <!-- <div class="d-flex">
+                <p class="d-flex flex-column">
+                  <span class="text-bold text-lg">820</span>
+                  <span>Visitors Over Time</span>
+                </p>
+                <p class="ml-auto d-flex flex-column text-right">
+                  <span class="text-success">
+                    <i class="fa fa-arrow-up"></i> 12.5%
+                  </span>
+                  <span class="text-muted">Since last week</span>
+                </p>
+              </div> -->
+              
+              <!-- /.d-flex -->
+
+              <!-- <div class="position-relative mb-4" style="height:200px !important">
+                <canvas id="visitors-chart" height="200" ></canvas>
+              </div> -->
+
+              <!-- <div class="d-flex flex-row justify-content-end">
+                <span class="mr-2">
+                  <i class="fa fa-square text-primary"></i> Free coupon for next shopping
+                </span>
+
+                <span>
+                  <i class="fa fa-square text-gray"></i> Last Week
+                </span>
+              </div> -->
             </div>
+            
           </div>
           <!-- /.card -->
           
@@ -165,7 +203,7 @@
               </table>
             </div>
           </div>
-          <div class="card" v-if="gender=='male' ">
+          <div class="card" v-if=" gender=='male' ">
             <div class="card-header border-0">
               <h3 class="card-title">Products</h3>
               <div class="card-tools">
@@ -273,33 +311,36 @@
           <!-- /.card -->
         </div>
         <!-- /.col-md-6 -->
-        <div class="col-lg-6">
+        <div v-if="age ==null" style="width: 100%; height: 80%; margin-top :20px; text-align: center;">
+         <h1> Welcome to our Mart!</h1>
+        </div>
+        <div class="col-lg-6" v-if = "age != null">
           <div class="card" >
             <div class="card-header border-0" >
               <div class="d-flex justify-content-between" >
                 <h3 class="card-title">Sales</h3>
               </div>
             </div>
-
-            //age>15
-            <div class="card-body" v-if = 'age > 15'>
+            <div class="card-body" v-if = 'age > 15 && age!=null' >
               <!--  -->
-              <img class="card-img-top" src="https://bange.com.vn/wp-content/uploads/2021/07/123-2-1.jpg" alt="Card image cap"> 
-            <div class="card-body">
-              <h2> Only 50$</h2>
+              <img class="card-img-top" style="width: 100% height:100%;" src="https://bange.com.vn/wp-content/uploads/2021/07/123-2-1.jpg" alt="Card image cap"> 
+  <div class="card-body">
+    <h2> Only 50$</h2>
+  </div>
             </div>
-            </div>
-            <div class="card" style="width: 30rem; margin-left:50px; margin-top: 10px;" v-if = 'age < 15'>
-            <img class="card-img-top" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
-            <div class="card-body">
-            <h2> Only 80$</h2>
-            <p class="card-text">Robots combine sensors, computation, and motors to interact intelligently with their environment. Robot toys need to be so cheap and robust that they can be used as playthings.</p>
-          </div>
-        </div>
+        <div class="card" style="width: 30rem; margin-left:50px; margin-top: 10px;" v-if = 'age < 15 && age != null'>
+  <img class="card-img-top" style="width: 100% height:100%;" src="https://sc04.alicdn.com/kf/H65d1c5fc3c0c4adba74635ce4662b2e4m.jpg" alt="Card image cap"> 
+  <div class="card-body">
+    <h2> Only 80$</h2>
+    <p class="card-text">Robots combine sensors, computation, and motors to interact intelligently with their environment. Robot toys need to be so cheap and robust that they can be used as playthings.</p>
+  </div>
+</div>
 
             
           </div>
           <!-- /.card -->
+
+         
         </div>
         <!-- /.col-md-6 -->
       </div>
