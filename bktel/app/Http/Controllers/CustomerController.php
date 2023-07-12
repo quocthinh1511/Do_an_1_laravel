@@ -48,7 +48,7 @@ class CustomerController extends Controller
     public function show_cus_name(Request $request){ 
           $name_send = $request['text_res'];
           $lens =strlen($name_send);
-          $name_cus = substr($name_send,0,$lens-7);
+          $name_cus = substr($name_send,0,$lens-6);
           $current_customer = CurrentCustomer::find(1);
          if( $current_customer ){
           $current_customer -> name =  $name_cus;

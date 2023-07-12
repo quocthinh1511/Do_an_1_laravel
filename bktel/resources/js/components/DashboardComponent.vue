@@ -11,7 +11,7 @@
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1 class="m-0 mb-3">BK SMART </h1>
-          <p class="m-0" v-if="name_cus != null && name_cus != 'unknown'">Welcome {{ name_cus }} to our Market! What to you want to buy?</p>
+          <p class="m-0" v-if="name_cus != null && name_cus !== 'unknown'">Welcome {{ name_cus }} to our Market! What to you want to buy?</p>
           <p class="m-0" v-if="name_cus != null && name_cus === 'unknown'">May be this first time you go to our Market? Do you want to be a member?</p>
           <p class="mt-1"  v-if="name_cus != null && name_cus === 'unknown'">(Being a member, you will receive some coupons and next shopping.)</p>
           <button class="m-0 hover_member" v-if="name_cus != null && name_cus === 'unknown'" @click="take_photo_page">Become a Member now!</button>

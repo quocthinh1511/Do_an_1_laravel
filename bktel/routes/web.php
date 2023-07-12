@@ -44,3 +44,4 @@ Route::post('/index_name_customer',[App\Http\Controllers\CustomerController::cla
 Route::post('/res_name_cus',[App\Http\Controllers\CustomerController::class,'show_cus_name']);
 Route::post('/create_customer', [App\Http\Controllers\CustomerController::class, 'store']);
 
+Route::post('/search-chat-gpt', [App\Http\Controllers\ApiController::class, 'index']);
